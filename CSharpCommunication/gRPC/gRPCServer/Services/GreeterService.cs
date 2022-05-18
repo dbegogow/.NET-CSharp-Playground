@@ -1,20 +1,35 @@
-using Grpc.Core;
-using gRPCServer;
+﻿using Grpc.Core;
 
-namespace gRPCServer.Services
+namespace gRPCServer.Services;
+
+public class GreeterService : Greeter.GreeterBase
 {
-    public class GreeterService : Greeter.GreeterBase
+    private readonly HashSet<GreetingRequest> requests;
+
+    public GreeterService()
     {
-        private readonly ILogger<GreeterService> _logger;
-        public GreeterService(ILogger<GreeterService> logger)
+        this.requests = new HashSet<GreetingRequest>();
+    }
+
+    public override Task<StatusResponse> SaveGreeting(GreetingRequest request, ServerCallContext context)
+    {
+        var isSuccessful = this.requests.Add(request); ;
+
+        var statusResponse = new StatusResponse();
+
+        if (isSuccessful)
         {
-            _logger = logger;
+            statusResponse.Summary = "Error: This name already exists.";
         }
 
-        public override Task<HelloReply> SayHello(HelloRequest request, ServerCallContext context)
-            => Task.FromResult(new HelloReply
-            {
-                Message = $"Hello {request.Name}"
-            });
+        statusResponse.Summary = "Success: Name is added successfully.";
+
+        return Task.FromResult(statusResponse);
     }
+
+    public override Task<IEnumerable<GreetingReply>> GetGreetings(Empty request, ServerCallContext context)
+        => Task.FromResult(this.requests.Select(r => new GreetingReply
+        {
+            Message = $"Hello from {r.Country}. My name is {r.Name}"
+        }));
 }

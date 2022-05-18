@@ -4,18 +4,22 @@ option csharp_namespace = "gRPCServer";
 
 package greet;
 
-// The greeting service definition.
 service Greeter {
-  // Sends a greeting
-  rpc SayHello (HelloRequest) returns (HelloReply);
+  rpc SaveGreeting(GreetingRequest) returns (StatusResponse);
+  rpc GetGreetings (Empty) returns (IEnumerable<GetGreetings>);
 }
 
-// The request message containing the user's name.
-message HelloRequest {
+message Empty {}
+
+message StatusResponse {
+	string summary = 1;
+}
+
+message GreetingRequest {
   string name = 1;
+  string country = 2;
 }
 
-// The response message containing the greetings.
-message HelloReply {
+message GreetingReply {
   string message = 1;
 }
