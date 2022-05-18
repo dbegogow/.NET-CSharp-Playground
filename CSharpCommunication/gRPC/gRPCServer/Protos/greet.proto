@@ -5,8 +5,8 @@ option csharp_namespace = "gRPCServer";
 package greet;
 
 service Greeter {
-  rpc SaveGreeting(GreetingRequest) returns (StatusResponse);
-  rpc GetGreetings (Empty) returns (IEnumerable<GetGreetings>);
+  rpc SaveGreeting (GreetingRequest) returns (StatusResponse);
+  rpc GetGreetings (Empty) returns (GreetingReplies);
 }
 
 message Empty {}
@@ -22,4 +22,8 @@ message GreetingRequest {
 
 message GreetingReply {
   string message = 1;
+}
+
+message GreetingReplies {
+	repeated GreetingReply replies = 1;
 }
