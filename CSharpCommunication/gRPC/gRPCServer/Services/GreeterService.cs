@@ -4,12 +4,7 @@ namespace gRPCServer.Services;
 
 public class GreeterService : Greeter.GreeterBase
 {
-    private readonly List<GreetingRequest> requests;
-
-    public GreeterService()
-    {
-        this.requests = new List<GreetingRequest>();
-    }
+    private readonly List<GreetingRequest> requests = new List<GreetingRequest>();
 
     public override Task<StatusResponse> SaveGreeting(GreetingRequest request, ServerCallContext context)
     {
@@ -19,12 +14,12 @@ public class GreeterService : Greeter.GreeterBase
 
         if (isNameExist)
         {
-            statusResponse.Summary = "Error: This name already exists.";
+            statusResponse.Summary = $"Error: {request.Name} already exists.";
         }
         else
         {
             this.requests.Add(request);
-            statusResponse.Summary = "Success: Name is added successfully.";
+            statusResponse.Summary = $"Success: {request.Name} is added successfully.";
         }
 
         return Task.FromResult(statusResponse);
@@ -35,7 +30,7 @@ public class GreeterService : Greeter.GreeterBase
         var greetings = this.requests
             .Select(r => new GreetingReply
             {
-                Message = $"Hello from {r.Country}. My name is {r.Name}"
+                Message = $"Hello from {r.Country}. My name is {r.Name}."
             });
 
         var greetingsResponse = new GreetingReplies();

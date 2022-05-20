@@ -17,6 +17,9 @@ foreach (var newGreeting in newGreetingRequests)
     Console.WriteLine($"Saving new greeting status: {isAddedSuccessfuly.Summary}");
 }
 
-var allGreetings = await client.GetGreetingsAsync(new Empty());
+Console.WriteLine("---------------------");
 
-Console.WriteLine(string.Join(Environment.NewLine, allGreetings.Replies));
+var allGreetings = await client.GetGreetingsAsync(new Empty());
+var allGreetingsMessages = allGreetings.Replies.Select(r => r.Message);
+
+Console.WriteLine(string.Join(Environment.NewLine, allGreetingsMessages));
