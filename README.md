@@ -2,5 +2,5 @@
 Some projects in the C# programming language
 
 ## 🛠️ Projects:
-- CSharpToCSharpCommunication
+- C# to C# communication
   * gRPC
