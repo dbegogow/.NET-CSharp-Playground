@@ -6,3 +6,4 @@ Some projects in the C# programming language
   * gRPC
 - Delegates and Events
   * Basic Delegates
+  * Actions and Functions
