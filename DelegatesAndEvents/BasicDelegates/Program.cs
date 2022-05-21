@@ -6,7 +6,6 @@ public class Person
 
     public void SomePersonMethod(int number)
     {
-
     }
 }
 
