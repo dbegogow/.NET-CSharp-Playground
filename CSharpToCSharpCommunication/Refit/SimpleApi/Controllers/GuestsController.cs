@@ -16,6 +16,10 @@ public class GuestsController : ControllerBase
     };
 
     [HttpGet]
-    public IEnumerable<GuestModel> Get()
+    public IEnumerable<GuestModel> GetAllGuests()
         => guests;
+
+    [HttpGet("{id}")]
+    public GuestModel GetGuests(int id)
+        => guests.FirstOrDefault(g => g.Id == id);
 }
