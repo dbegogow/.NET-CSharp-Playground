@@ -7,3 +7,4 @@ Some projects in the C# programming language
 - Delegates and Events
   * Basic Delegates
   * Actions and Functions
+  * Events
