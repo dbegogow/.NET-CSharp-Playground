@@ -22,4 +22,38 @@ public class GuestsController : ControllerBase
     [HttpGet("{id}")]
     public GuestModel GetGuests(int id)
         => guests.FirstOrDefault(g => g.Id == id);
+
+    [HttpPost]
+    public void Post([FromBody] GuestModel value)
+        => guests.Add(value);
+
+    [HttpPut("{id}")]
+    public void Post(int id, [FromBody] GuestModel value)
+    {
+        var guest = guests
+            .FirstOrDefault(g => g.Id == id);
+
+        if (guest == null)
+        {
+            return;
+        }
+
+        guest.Id = value.Id;
+        guest.FirstName = value.FirstName;
+        guest.LastName = value.LastName;
+    }
+
+    [HttpDelete("{id}")]
+    public void Delete(int id)
+    {
+        var guest = guests
+            .FirstOrDefault(g => g.Id == id);
+
+        if (guest == null)
+        {
+            return;
+        }
+
+        guests.Remove(guest);
+    }
 }
