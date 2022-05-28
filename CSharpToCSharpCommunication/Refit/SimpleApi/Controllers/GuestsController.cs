@@ -1,6 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-using SimpleApi.Models;
+﻿using SimpleApi.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace SimpleApi.Controllers;
 
