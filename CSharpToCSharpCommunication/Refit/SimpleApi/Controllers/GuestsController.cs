@@ -15,6 +15,7 @@ public class GuestsController : ControllerBase
         new GuestModel { Id = 1, FirstName = "Ivaylo", LastName = "Nikolov" }
     };
 
+    [HttpGet]
     public IEnumerable<GuestModel> Get()
         => guests;
 }
