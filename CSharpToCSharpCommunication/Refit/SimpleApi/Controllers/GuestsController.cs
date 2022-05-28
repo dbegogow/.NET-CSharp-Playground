@@ -1,13 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
+using SimpleApi.Models;
+
 namespace SimpleApi.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
 public class GuestsController : ControllerBase
 {
-    public IEnumerable<string> Get()
+    private static List<GuestModel> guests = new()
     {
-        return new string[] { "value1", "value2" };
-    }
+        new GuestModel { Id = 1, FirstName = "Dzhulio", LastName = "Begogov" },
+        new GuestModel { Id = 2, FirstName = "Ivana", LastName = "Tagareva" },
+        new GuestModel { Id = 1, FirstName = "Ivaylo", LastName = "Nikolov" }
+    };
+
+    public IEnumerable<GuestModel> Get()
+        => guests;
 }
