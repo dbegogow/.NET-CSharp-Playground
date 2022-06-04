@@ -6,19 +6,36 @@ public class Program
 {
     public static void Main()
     {
-        var list = new List<int>()
-            .Where(n => n % 2 == 0);
-
         var myClass = new MyClass();
-
-        Func<MyClass, string> func = c => c.MyMethod(42, "My demo code");
-        Func<MyClass, bool> propFunc = c => c.MyProperty;
 
         Expression<Func<MyClass, string>> expr = c => c.MyMethod(42, "My demo code");
         Expression<Func<MyClass, bool>> propExpr = c => c.MyProperty;
 
-        ParseExpression(expr);
-        ParseExpression(propExpr);
+        //ParseExpression(expr);
+        //ParseExpression(propExpr);
+
+        var exprFunc = expr.Compile();
+
+        var result = exprFunc(myClass);
+
+        //Console.WriteLine(result);
+
+        var numberConstant = Expression.Constant(42);
+        var textConstant = Expression.Constant("My demo code");
+
+        var myClassType = typeof(MyClass);
+
+        var parameterExpression = Expression.Parameter(myClassType, "c");
+
+        var methodInfo = myClassType.GetMethod(nameof(MyClass.MyMethod));
+
+        var callExpression = Expression.Call(parameterExpression, methodInfo, numberConstant, textConstant);
+
+        var lambdaExpression = Expression.Lambda<Func<MyClass, string>>(callExpression, parameterExpression);
+
+        var func = lambdaExpression.Compile();
+
+        Console.WriteLine(func(myClass));
     }
 
     private static void ParseExpression(Expression expression)
