@@ -8,3 +8,4 @@ Some playground projects in the C# programming language
   * Basic Delegates
   * Actions and Functions
   * Events
+- Expression Trees
