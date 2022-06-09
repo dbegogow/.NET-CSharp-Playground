@@ -1,6 +1,6 @@
 ﻿namespace DataAccess.Models;
 
-internal class UserModel
+public class UserModel
 {
     public int Id { get; set; }
 
