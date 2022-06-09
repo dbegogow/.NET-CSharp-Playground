@@ -4,5 +4,5 @@ AS
 BEGIN
 	DELETE
 	FROM dbo.[User]
-	WHERE Id = @Id
+	WHERE Id = @Id;
 END

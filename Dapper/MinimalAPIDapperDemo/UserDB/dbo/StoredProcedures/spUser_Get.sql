@@ -4,5 +4,5 @@ AS
 BEGIN
 	SELECT *
 	FROM dbo.[User]
-	WHERE Id = @Id
+	WHERE Id = @Id;
 END
