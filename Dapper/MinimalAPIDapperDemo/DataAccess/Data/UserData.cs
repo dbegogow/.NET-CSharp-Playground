@@ -23,4 +23,14 @@ public class UserData
 
         return result.FirstOrDefault();
     }
+
+    public Task InsertUser(UserModel user)
+        => this._db.SaveData(
+            "dbo.spUser_Insert",
+            new { user.FirstName, user.LastName });
+
+    public Task UpdateUser(UserModel user)
+        => this._db.SaveData(
+            "dbo.spUser_Update",
+            user);
 }
