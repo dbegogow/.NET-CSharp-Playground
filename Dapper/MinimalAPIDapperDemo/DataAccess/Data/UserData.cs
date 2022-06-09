@@ -1,9 +1,9 @@
-﻿using DataAccess.DbAccess;
-using DataAccess.Models;
+﻿using DataAccess.Models;
+using DataAccess.DbAccess;
 
 namespace DataAccess.Data;
 
-public class UserData
+public class UserData : IUserData
 {
     private readonly ISqlDataAccess _db;
 
@@ -33,4 +33,8 @@ public class UserData
         => this._db.SaveData(
             "dbo.spUser_Update",
             user);
+
+    public Task DeleteUser(int id)
+        => this._db.SaveData(
+            "dbo.spUser_Delete", new { Id = id });
 }
