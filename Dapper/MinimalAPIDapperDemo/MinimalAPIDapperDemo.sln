@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalAPIDapperDemo", "Min
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "UserDB", "UserDB\UserDB.sqlproj", "{DBB678BE-2CCB-491A-9357-0037237CB8F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{55E7BA9D-5DE1-4B03-B61B-47547FE9D737}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{DBB678BE-2CCB-491A-9357-0037237CB8F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBB678BE-2CCB-491A-9357-0037237CB8F3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DBB678BE-2CCB-491A-9357-0037237CB8F3}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{55E7BA9D-5DE1-4B03-B61B-47547FE9D737}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55E7BA9D-5DE1-4B03-B61B-47547FE9D737}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55E7BA9D-5DE1-4B03-B61B-47547FE9D737}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55E7BA9D-5DE1-4B03-B61B-47547FE9D737}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
