@@ -1,5 +1,4 @@
 ﻿using RefitCommon;
-
 using Refit;
 
 namespace RefitClient;

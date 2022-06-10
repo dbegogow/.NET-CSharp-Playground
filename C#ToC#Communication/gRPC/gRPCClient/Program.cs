@@ -1,5 +1,5 @@
-﻿using Grpc.Net.Client;
-using gRPCServer;
+﻿using gRPCServer;
+using Grpc.Net.Client;
 
 var chanel = GrpcChannel.ForAddress("https://localhost:7290");
 var client = new Greeter.GreeterClient(chanel);

@@ -1,5 +1,4 @@
 ﻿using RefitCommon;
-
 using Microsoft.AspNetCore.Mvc;
 
 namespace RefitServer.Controllers;
