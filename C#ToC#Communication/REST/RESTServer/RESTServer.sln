@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTServer", "RESTServer.cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTCommon", "..\RESTCommon\RESTCommon.csproj", "{1A4AA481-709D-41E4-BECB-3AE2502C219F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTClient", "..\RESTClient\RESTClient.csproj", "{70E44C2D-247B-49E0-B50F-C747E39C940B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1A4AA481-709D-41E4-BECB-3AE2502C219F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A4AA481-709D-41E4-BECB-3AE2502C219F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A4AA481-709D-41E4-BECB-3AE2502C219F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70E44C2D-247B-49E0-B50F-C747E39C940B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70E44C2D-247B-49E0-B50F-C747E39C940B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70E44C2D-247B-49E0-B50F-C747E39C940B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70E44C2D-247B-49E0-B50F-C747E39C940B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
