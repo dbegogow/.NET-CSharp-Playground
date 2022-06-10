@@ -10,3 +10,4 @@ Some playground projects in the C# programming language
   * Actions and Functions
   * Events
 - Expression Trees
+- Dapper - Micro ORM
