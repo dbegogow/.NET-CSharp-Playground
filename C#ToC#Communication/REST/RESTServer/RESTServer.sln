@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTServer", "RESTServer.csproj", "{6FA01F54-784B-4366-B069-57B7F7789ED5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTCommon", "..\RESTCommon\RESTCommon.csproj", "{1A4AA481-709D-41E4-BECB-3AE2502C219F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{6FA01F54-784B-4366-B069-57B7F7789ED5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FA01F54-784B-4366-B069-57B7F7789ED5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FA01F54-784B-4366-B069-57B7F7789ED5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A4AA481-709D-41E4-BECB-3AE2502C219F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A4AA481-709D-41E4-BECB-3AE2502C219F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A4AA481-709D-41E4-BECB-3AE2502C219F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A4AA481-709D-41E4-BECB-3AE2502C219F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
