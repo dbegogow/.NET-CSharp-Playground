@@ -1,3 +1,4 @@
+using MinimalAPIDapperDemo;
 using DataAccess.DbAccess;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<ISqlDataAccess, SqlDataAccess>();
-builder.Services.AddSingleton<IUserData, IUserData>();
+builder.Services.AddSingleton<IUserData, UserData>();
 
 var app = builder.Build();
 
@@ -16,5 +17,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.ConfigureApi();
 
 app.Run();
