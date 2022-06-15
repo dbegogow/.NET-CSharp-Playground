@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
+﻿using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
 using WebAppExpressions.Models;
 
 namespace WebAppExpressions.Controllers
@@ -13,7 +13,7 @@ namespace WebAppExpressions.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int id, string query)
         {
             return View();
         }
