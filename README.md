@@ -5,6 +5,7 @@ Some playground projects in the C# programming language
 - C# to C# Communication
   * gRPC
   * Refit
+  * REST
 - Delegates and Events
   * Basic Delegates
   * Actions and Functions
