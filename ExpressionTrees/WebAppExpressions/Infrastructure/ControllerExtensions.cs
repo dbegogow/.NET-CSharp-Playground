@@ -17,7 +17,7 @@ namespace WebAppExpressions.Infrastructure
             var methodCallExpression = (MethodCallExpression)redirectExpression.Body;
 
             var actionName = methodCallExpression.Method.Name;
-            var controllerName = typeof(TController).Name.Replace(nameof(controller), string.Empty);
+            var controllerName = typeof(TController).Name.Replace(nameof(Controller), string.Empty);
 
             return controller.RedirectToAction(actionName, controllerName);
         }
