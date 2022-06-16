@@ -7,7 +7,9 @@ namespace WebAppExpressions.Controllers
     {
         public IActionResult About()
         {
-            return this.RedirectTo<HomeController>(c => c.Index(5, "MyApp"));
+            var id = 5;
+
+            return this.RedirectTo<HomeController>(c => c.Index(id, "MyApp"));
         }
     }
 }

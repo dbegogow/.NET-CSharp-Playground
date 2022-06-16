@@ -40,7 +40,9 @@ namespace WebAppExpressions.Infrastructure
                         return constantExpression.Value;
                     }
 
-                    return null;
+                    var convertExpression = Expression.Convert(arg, typeof(object));
+                    var funcExpression = Expression.Lambda<Func<object>>(convertExpression);
+                    return funcExpression.Compile().Invoke();
                 })
                 .ToArray();
 
