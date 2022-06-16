@@ -1,10 +1,13 @@
 ﻿using System.Linq.Expressions;
+using System.Collections.Concurrent;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAppExpressions.Infrastructure
 {
     public static class ControllerExtensions
     {
+        private static readonly ConcurrentDictionary<string, string> actionNameCache = new();
+
         public static IActionResult RedirectTo<TController>(
             this Controller controller,
             Expression<Action<TController>> redirectExpression)
@@ -26,16 +29,21 @@ namespace WebAppExpressions.Infrastructure
 
         private static string GetActionName(MethodCallExpression expression)
         {
-            var methodName = expression.Method.Name;
+            var cacheKey = $"{expression.Method.Name}_{expression?.Object?.Type.Name}";
 
-            var actionName = expression
-                .Method
-                .GetCustomAttributes(true)
-                .OfType<ActionNameAttribute>()
-                .FirstOrDefault()
-                ?.Name;
+            return actionNameCache.GetOrAdd(cacheKey, _ =>
+            {
+                var methodName = expression?.Method.Name;
 
-            return actionName ?? methodName;
+                var actionName = expression
+                    ?.Method
+                    .GetCustomAttributes(true)
+                    .OfType<ActionNameAttribute>()
+                    .FirstOrDefault()
+                    ?.Name;
+
+                return actionName ?? methodName;
+            });
         }
 
         private static RouteValueDictionary ExtractRouteValues(MethodCallExpression expression)
