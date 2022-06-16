@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
 using WebAppExpressions.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WebAppExpressions.Controllers
 {
@@ -13,9 +13,11 @@ namespace WebAppExpressions.Controllers
             _logger = logger;
         }
 
+        [ActionName("SomethingElse")]
+
         public IActionResult Index(int id, string query)
         {
-            return View();
+            return View(nameof(Index));
         }
 
         public IActionResult Privacy()

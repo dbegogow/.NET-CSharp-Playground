@@ -16,12 +16,26 @@ namespace WebAppExpressions.Infrastructure
 
             var methodCallExpression = (MethodCallExpression)redirectExpression.Body;
 
-            var actionName = methodCallExpression.Method.Name;
+            var actionName = GetActionName(methodCallExpression);
             var controllerName = typeof(TController).Name.Replace(nameof(Controller), string.Empty);
 
             var routeValues = ExtractRouteValues(methodCallExpression);
 
             return controller.RedirectToAction(actionName, controllerName, routeValues);
+        }
+
+        private static string GetActionName(MethodCallExpression expression)
+        {
+            var methodName = expression.Method.Name;
+
+            var actionName = expression
+                .Method
+                .GetCustomAttributes(true)
+                .OfType<ActionNameAttribute>()
+                .FirstOrDefault()
+                ?.Name;
+
+            return actionName ?? methodName;
         }
 
         private static RouteValueDictionary ExtractRouteValues(MethodCallExpression expression)
