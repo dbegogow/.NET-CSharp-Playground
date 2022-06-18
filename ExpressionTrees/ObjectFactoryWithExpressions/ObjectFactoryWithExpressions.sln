@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectFactoryWithExpressions", "ObjectFactoryWithExpressions.csproj", "{B5A5AE05-8039-4808-90E0-9110FE0B644E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5A5AE05-8039-4808-90E0-9110FE0B644E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5A5AE05-8039-4808-90E0-9110FE0B644E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5A5AE05-8039-4808-90E0-9110FE0B644E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5A5AE05-8039-4808-90E0-9110FE0B644E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BFB0D800-E48B-4F87-B979-031A9C6544EC}
+	EndGlobalSection
+EndGlobal

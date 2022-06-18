@@ -11,7 +11,7 @@ public class Program
         Expression<Func<MyClass, string>> expr = c => c.MyMethod(42, "My demo code");
         Expression<Func<MyClass, bool>> propExpr = c => c.MyProperty;
 
-        //ParseExpression(expr);
+        ParseExpression(expr);
         //ParseExpression(propExpr);
 
         var exprFunc = expr.Compile();
