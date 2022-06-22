@@ -1,5 +1,6 @@
 # CSharp-Playground
 Some .NET playground projects for educational purposes.
+Resources I learned from - Code It Up with Ivo (Youtube channel), IAmTimCorey (Youtube channel)
 
 ## 🛠️ Projects:
 - C# to C# Communication
