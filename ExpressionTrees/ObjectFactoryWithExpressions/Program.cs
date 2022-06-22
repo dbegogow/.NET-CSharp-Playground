@@ -10,7 +10,7 @@ namespace ObjectFactoryWithExpressions
 
             var stopwatch = Stopwatch.StartNew();
 
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 100_000; i++)
             {
                 var cat = Activator.CreateInstance<Cat>();
 
@@ -28,7 +28,7 @@ namespace ObjectFactoryWithExpressions
 
             //catType.CreateInstance<Cat>();
 
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 100_000; i++)
             {
                 var cat = New<Cat>.Instance();
 
@@ -36,6 +36,40 @@ namespace ObjectFactoryWithExpressions
             }
 
             Console.WriteLine($"{stopwatch.Elapsed} - Expression Trees - No parameters in constructor");
+            Console.WriteLine(list.Count);
+
+            list = new List<Cat>();
+            stopwatch = Stopwatch.StartNew();
+
+            //var catType = typeof(Cat);
+
+            //catType.CreateInstance<Cat>();
+
+            for (int i = 0; i < 100_000; i++)
+            {
+                var cat = (Cat)Activator.CreateInstance(typeof(Cat), "My Cool Cat", 2);
+
+                list.Add(cat);
+            }
+
+            Console.WriteLine($"{stopwatch.Elapsed} - Activator - 2 parameters in constructor");
+            Console.WriteLine(list.Count);
+
+            list = new List<Cat>();
+            stopwatch = Stopwatch.StartNew();
+
+            //var catType = typeof(Cat);
+
+            //catType.CreateInstance<Cat>();
+
+            for (int i = 0; i < 100_000; i++)
+            {
+                var cat = (Cat)ObjectFactory.CreateInstance(typeof(Cat), "My Cool Cat", 2);
+
+                list.Add(cat);
+            }
+
+            Console.WriteLine($"{stopwatch.Elapsed} - Expression Trees - 2 parameters in constructor");
             Console.WriteLine(list.Count);
         }
     }

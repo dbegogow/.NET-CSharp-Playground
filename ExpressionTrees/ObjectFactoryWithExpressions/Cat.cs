@@ -9,5 +9,11 @@ public class Cat
     public Cat(string name)
         => this.Name = name;
 
+    public Cat(string name, int age)
+        : this(name)
+        => Age = age;
+
     public string Name { get; set; }
+
+    public int Age { get; set; }
 }
