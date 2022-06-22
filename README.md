@@ -1,5 +1,5 @@
 # CSharp-Playground
-Some playground projects in the C# programming language
+Some playground projects in the C# programming language for educational purposes.
 
 ## 🛠️ Projects:
 - C# to C# Communication
