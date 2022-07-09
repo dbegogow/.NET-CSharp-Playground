@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="C:\Users\dzhul\.nuget\packages\fastexpressioncompiler.src\3.3.2\contentFiles\cs\netstandard2.0\FastExpressionCompiler\FastExpressionCompiler.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FastExpressionCompiler" Version="3.3.2" />
+    <PackageReference Include="FastExpressionCompiler.LightExpression" Version="3.3.2" />
+  </ItemGroup>
+
+</Project>
