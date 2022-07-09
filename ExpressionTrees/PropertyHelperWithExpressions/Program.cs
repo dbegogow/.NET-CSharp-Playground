@@ -15,28 +15,7 @@ public class Program
 
         var stopwatch = Stopwatch.StartNew();
 
-        for (int i = 0; i < 1_000_000; i++)
-        {
-            obj
-                .GetType()
-                .GetProperties()
-                .Select(pr => new
-                {
-                    pr.Name,
-                    Value = pr.GetValue(obj)
-                })
-                .ToList()
-                .ForEach(pr => dict[pr.Name] = pr.Value ?? string.Empty);
-        }
-
-        Console.WriteLine($"{stopwatch.Elapsed} - Reflection Property Getters");
-        Console.WriteLine(dict.Count);
-
-        dict = new Dictionary<string, object>();
-
-        stopwatch = Stopwatch.StartNew();
-
-        for (int i = 0; i < 1_000_000; i++)
+        for (int i = 0; i < 1000; i++)
         {
             PropertyHelper
                 .GetProperties(obj.GetType())
@@ -49,7 +28,27 @@ public class Program
                 .ForEach(pr => dict[pr.Name] = pr.Value);
         }
 
-        Console.WriteLine($"{stopwatch.Elapsed} - Expression Tree Getters");
+        Console.WriteLine($"{stopwatch.Elapsed} - Normal Expression Tree");
+        Console.WriteLine(dict.Count);
+
+        dict = new Dictionary<string, object>();
+
+        stopwatch = Stopwatch.StartNew();
+
+        for (int i = 0; i < 1000; i++)
+        {
+            PropertyHelperFast
+                .GetProperties(obj.GetType())
+                .Select(pr => new
+                {
+                    pr.Name,
+                    Value = pr.Getter(obj)
+                })
+                .ToList()
+                .ForEach(pr => dict[pr.Name] = pr.Value);
+        }
+
+        Console.WriteLine($"{stopwatch.Elapsed} - Fast Expression Tree");
         Console.WriteLine(dict.Count);
     }
 }

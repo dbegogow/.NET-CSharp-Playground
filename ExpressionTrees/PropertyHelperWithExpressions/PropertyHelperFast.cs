@@ -1,9 +1,9 @@
-﻿using System.Linq.Expressions;
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
+using FastExpressionCompiler.LightExpression;
 
 namespace PropertyHelperWithExpressions;
 
-public class PropertyHelper
+public class PropertyHelperFast
 {
     private static readonly Type TypeOfObject = typeof(object);
 
@@ -36,7 +36,7 @@ public class PropertyHelper
                    var lambda = Expression
                           .Lambda<Func<object, object>>(convertedBody, parameter);
 
-                   var propertyGetterFunc = lambda.Compile();
+                   var propertyGetterFunc = lambda.CompileFast();
 
                    return new PropertyHelper
                    {
