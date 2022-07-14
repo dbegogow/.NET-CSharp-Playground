@@ -13,3 +13,5 @@ Resources I learned from - Code It Up with Ivo (Youtube channel), IAmTimCorey (Y
   * Events
 - Expression Trees
 - Dapper - Micro ORM
+- Recursion
+  * Calculate Factorial
