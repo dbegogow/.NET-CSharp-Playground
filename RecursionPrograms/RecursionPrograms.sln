@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculateFactorial", "CalculateFactorial\CalculateFactorial.csproj", "{881501FA-A607-4C52-A9E8-165FCCE54DCC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculateFactorial", "CalculateFactorial\CalculateFactorial.csproj", "{881501FA-A607-4C52-A9E8-165FCCE54DCC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberDigitsSum", "NumberDigitsSum\NumberDigitsSum.csproj", "{C65B41D1-7C50-44F3-906A-6E7DD18367CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{881501FA-A607-4C52-A9E8-165FCCE54DCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{881501FA-A607-4C52-A9E8-165FCCE54DCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{881501FA-A607-4C52-A9E8-165FCCE54DCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C65B41D1-7C50-44F3-906A-6E7DD18367CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C65B41D1-7C50-44F3-906A-6E7DD18367CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C65B41D1-7C50-44F3-906A-6E7DD18367CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C65B41D1-7C50-44F3-906A-6E7DD18367CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
