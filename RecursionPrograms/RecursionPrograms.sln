@@ -5,7 +5,9 @@ VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculateFactorial", "CalculateFactorial\CalculateFactorial.csproj", "{881501FA-A607-4C52-A9E8-165FCCE54DCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberDigitsSum", "NumberDigitsSum\NumberDigitsSum.csproj", "{C65B41D1-7C50-44F3-906A-6E7DD18367CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NumberDigitsSum", "NumberDigitsSum\NumberDigitsSum.csproj", "{C65B41D1-7C50-44F3-906A-6E7DD18367CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConvertIntegerToBinary", "ConvertIntegerToBinary\ConvertIntegerToBinary.csproj", "{1D0A8EAB-91A9-4EBC-BD0D-216CA9BEBFE2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{C65B41D1-7C50-44F3-906A-6E7DD18367CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C65B41D1-7C50-44F3-906A-6E7DD18367CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C65B41D1-7C50-44F3-906A-6E7DD18367CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D0A8EAB-91A9-4EBC-BD0D-216CA9BEBFE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D0A8EAB-91A9-4EBC-BD0D-216CA9BEBFE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D0A8EAB-91A9-4EBC-BD0D-216CA9BEBFE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D0A8EAB-91A9-4EBC-BD0D-216CA9BEBFE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
