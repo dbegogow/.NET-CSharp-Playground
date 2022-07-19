@@ -16,3 +16,4 @@ Resources I learned from - Code It Up with Ivo (Youtube channel), IAmTimCorey (Y
 - Recursion
   * Calculate Factorial
   * Sum digits of number
+  * Convert integer to binary
