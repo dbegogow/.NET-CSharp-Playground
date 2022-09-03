@@ -2,6 +2,10 @@
 
 public class Node<T>
 {
+    public Node()
+    {
+    }
+
     public Node(T value)
         => this.Value = value;
 

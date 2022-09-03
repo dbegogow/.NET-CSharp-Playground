@@ -10,8 +10,9 @@ public class Program
         linkedList.Add(2);
         linkedList.Add(3);
         linkedList.Add(4);
-        linkedList.Add(5);
 
-        ;
+        linkedList.Reverse();
+
+        Console.WriteLine(string.Join(", ", linkedList));
     }
 }
