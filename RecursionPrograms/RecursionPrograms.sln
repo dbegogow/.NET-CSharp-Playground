@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConvertIntegerToBinary", "C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatePowerOfNumber", "CalculatePowerOfNumber\CalculatePowerOfNumber.csproj", "{F1B360F1-EB10-4531-A80B-686200995A94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedListReversal", "LinkedListReversal\LinkedListReversal.csproj", "{3AA655B7-A988-46FE-A0D8-1A6796B3F122}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinkedListReversal", "LinkedListReversal\LinkedListReversal.csproj", "{3AA655B7-A988-46FE-A0D8-1A6796B3F122}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FibonacciSeries", "FibonacciSeries\FibonacciSeries.csproj", "{424D2432-6BB0-4CD0-8AD9-ECEC3EBB54CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{3AA655B7-A988-46FE-A0D8-1A6796B3F122}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AA655B7-A988-46FE-A0D8-1A6796B3F122}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AA655B7-A988-46FE-A0D8-1A6796B3F122}.Release|Any CPU.Build.0 = Release|Any CPU
+		{424D2432-6BB0-4CD0-8AD9-ECEC3EBB54CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{424D2432-6BB0-4CD0-8AD9-ECEC3EBB54CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{424D2432-6BB0-4CD0-8AD9-ECEC3EBB54CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{424D2432-6BB0-4CD0-8AD9-ECEC3EBB54CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
