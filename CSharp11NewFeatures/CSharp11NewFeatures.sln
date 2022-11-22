@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RawStringLiterals", "RawStringLiterals\RawStringLiterals.csproj", "{3C83BF9E-6136-480F-8F41-BB1F93711FC7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListPatterns", "ListPatterns\ListPatterns.csproj", "{F063FBDC-445C-4666-8022-1D7EDC4E9533}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3C83BF9E-6136-480F-8F41-BB1F93711FC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C83BF9E-6136-480F-8F41-BB1F93711FC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C83BF9E-6136-480F-8F41-BB1F93711FC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F063FBDC-445C-4666-8022-1D7EDC4E9533}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F063FBDC-445C-4666-8022-1D7EDC4E9533}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F063FBDC-445C-4666-8022-1D7EDC4E9533}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F063FBDC-445C-4666-8022-1D7EDC4E9533}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
