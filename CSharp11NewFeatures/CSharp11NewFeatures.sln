@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListPatterns", "ListPattern
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericsOnAttributes", "GenericsOnAttributes\GenericsOnAttributes.csproj", "{4E5B0AB9-DFFB-4881-81F6-91953DCB3054}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtendedNameOfScope", "ExtendedNameOfScope\ExtendedNameOfScope.csproj", "{E14B3C2A-1F8E-4AC8-AC78-DDC8BD5D20DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4E5B0AB9-DFFB-4881-81F6-91953DCB3054}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E5B0AB9-DFFB-4881-81F6-91953DCB3054}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E5B0AB9-DFFB-4881-81F6-91953DCB3054}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E14B3C2A-1F8E-4AC8-AC78-DDC8BD5D20DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E14B3C2A-1F8E-4AC8-AC78-DDC8BD5D20DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E14B3C2A-1F8E-4AC8-AC78-DDC8BD5D20DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E14B3C2A-1F8E-4AC8-AC78-DDC8BD5D20DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
