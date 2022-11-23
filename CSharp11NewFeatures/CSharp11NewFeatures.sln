@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utf8StringLiterals", "Utf8S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringInterpolatedNewLine", "StringInterpolatedNewLine\StringInterpolatedNewLine.csproj", "{C1916DD6-BE3B-4932-8132-BA07E84FD134}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericMath", "GenericMath\GenericMath.csproj", "{7E5CD7BC-DBF7-49C4-9804-41CD6EBFD099}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{C1916DD6-BE3B-4932-8132-BA07E84FD134}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1916DD6-BE3B-4932-8132-BA07E84FD134}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1916DD6-BE3B-4932-8132-BA07E84FD134}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E5CD7BC-DBF7-49C4-9804-41CD6EBFD099}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E5CD7BC-DBF7-49C4-9804-41CD6EBFD099}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E5CD7BC-DBF7-49C4-9804-41CD6EBFD099}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E5CD7BC-DBF7-49C4-9804-41CD6EBFD099}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
