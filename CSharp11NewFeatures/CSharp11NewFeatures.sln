@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringInterpolatedNewLine",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericMath", "GenericMath\GenericMath.csproj", "{7E5CD7BC-DBF7-49C4-9804-41CD6EBFD099}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequiredMembers", "RequiredMembers\RequiredMembers.csproj", "{DBA11A4A-1E0D-4EBE-B9A7-20D98DE0992B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{7E5CD7BC-DBF7-49C4-9804-41CD6EBFD099}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E5CD7BC-DBF7-49C4-9804-41CD6EBFD099}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E5CD7BC-DBF7-49C4-9804-41CD6EBFD099}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBA11A4A-1E0D-4EBE-B9A7-20D98DE0992B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBA11A4A-1E0D-4EBE-B9A7-20D98DE0992B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBA11A4A-1E0D-4EBE-B9A7-20D98DE0992B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBA11A4A-1E0D-4EBE-B9A7-20D98DE0992B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
