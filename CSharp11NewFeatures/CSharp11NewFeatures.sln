@@ -11,13 +11,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericsOnAttributes", "Gen
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExtendedNameOfScope", "ExtendedNameOfScope\ExtendedNameOfScope.csproj", "{E14B3C2A-1F8E-4AC8-AC78-DDC8BD5D20DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utf8StringLiterals", "Utf8StringLiterals\Utf8StringLiterals.csproj", "{52489EB9-7AD1-4177-8EB1-64DA6CABD864}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utf8StringLiterals", "Utf8StringLiterals\Utf8StringLiterals.csproj", "{52489EB9-7AD1-4177-8EB1-64DA6CABD864}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringInterpolatedNewLine", "StringInterpolatedNewLine\StringInterpolatedNewLine.csproj", "{C1916DD6-BE3B-4932-8132-BA07E84FD134}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StringInterpolatedNewLine", "StringInterpolatedNewLine\StringInterpolatedNewLine.csproj", "{C1916DD6-BE3B-4932-8132-BA07E84FD134}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericMath", "GenericMath\GenericMath.csproj", "{7E5CD7BC-DBF7-49C4-9804-41CD6EBFD099}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericMath", "GenericMath\GenericMath.csproj", "{7E5CD7BC-DBF7-49C4-9804-41CD6EBFD099}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequiredMembers", "RequiredMembers\RequiredMembers.csproj", "{DBA11A4A-1E0D-4EBE-B9A7-20D98DE0992B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RequiredMembers", "RequiredMembers\RequiredMembers.csproj", "{DBA11A4A-1E0D-4EBE-B9A7-20D98DE0992B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileScopedTypes", "FileScopedTypes\FileScopedTypes.csproj", "{0DC3FAEC-71C1-4490-98D2-79A612F9E460}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{DBA11A4A-1E0D-4EBE-B9A7-20D98DE0992B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBA11A4A-1E0D-4EBE-B9A7-20D98DE0992B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBA11A4A-1E0D-4EBE-B9A7-20D98DE0992B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DC3FAEC-71C1-4490-98D2-79A612F9E460}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DC3FAEC-71C1-4490-98D2-79A612F9E460}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DC3FAEC-71C1-4490-98D2-79A612F9E460}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DC3FAEC-71C1-4490-98D2-79A612F9E460}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
