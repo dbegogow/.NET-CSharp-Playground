@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RequiredMembers", "Required
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileScopedTypes", "FileScopedTypes\FileScopedTypes.csproj", "{0DC3FAEC-71C1-4490-98D2-79A612F9E460}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatternMatchSpan", "PatternMatchSpan\PatternMatchSpan.csproj", "{14042B34-5004-477F-A19E-5091E980CA48}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{0DC3FAEC-71C1-4490-98D2-79A612F9E460}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DC3FAEC-71C1-4490-98D2-79A612F9E460}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DC3FAEC-71C1-4490-98D2-79A612F9E460}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14042B34-5004-477F-A19E-5091E980CA48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14042B34-5004-477F-A19E-5091E980CA48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14042B34-5004-477F-A19E-5091E980CA48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14042B34-5004-477F-A19E-5091E980CA48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
