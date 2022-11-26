@@ -28,3 +28,9 @@ Resources I learned from - Code It Up with Ivo (Youtube channel), IAmTimCorey (Y
   * String interpolated new line
   * Generic maths/abstracting over static members
   * Required members
+  * File scoped types
+  * Pattern matching on Spans for constant strings
+  * Auto-default structs
+  * Improved method group conversion to delegate
+  * Numeric IntPtr
+  * Ref fields and ref scoped variables
