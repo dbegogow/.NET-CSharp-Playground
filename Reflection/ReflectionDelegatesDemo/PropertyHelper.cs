@@ -3,23 +3,33 @@ using System.Collections.Concurrent;
 
 namespace ReflectionDelegatesDemo;
 
-public class PropertyHelper<TClass>
+public class PropertyHelper
 {
-    private static readonly IDictionary<string, Delegate> cache = new ConcurrentDictionary<string, Delegate>();
+    private static readonly ConcurrentDictionary<string, Delegate> cache = new ConcurrentDictionary<string, Delegate>();
 
-    public static Func<TClass, TResult> MakeFastPropertyGetter<TResult>(PropertyInfo property)
-    {
-        if (cache.ContainsKey(property.Name))
-        {
-            return (Func<TClass, TResult>)cache[property.Name];
-        }
+    private static readonly MethodInfo CallInnerDelegateMethod =
+        typeof(PropertyHelper).GetMethod(nameof(CallInnerDelegate), BindingFlags.NonPublic | BindingFlags.Static);
 
-        var getMethod = property.GetMethod;
+    public static Func<object, TResult> MakeFastPropertyGetter<TResult>(PropertyInfo property)
+        => (Func<object, TResult>)cache.GetOrAdd(property.Name, key =>
+            {
+                var getMethod = property.GetMethod;
+                var declaringClass = property.DeclaringType;
+                var typeOfResult = typeof(TResult);
 
-        var deleg = (Func<TClass, TResult>)getMethod.CreateDelegate(typeof(Func<TClass, TResult>));
+                var getMethodDelegateType = typeof(Func<,>).MakeGenericType(declaringClass, typeOfResult);
 
-        cache.Add(property.Name, deleg);
+                var getMethodDelegate = getMethod.CreateDelegate(getMethodDelegateType);
 
-        return deleg;
-    }
+                var callInnerGenericMethodWithTypes = CallInnerDelegateMethod
+                    .MakeGenericMethod(declaringClass, typeOfResult);
+
+                var result = (Delegate)callInnerGenericMethodWithTypes.Invoke(null, new[] { getMethodDelegate });
+
+                return result;
+            });
+
+    private static Func<object, TResult> CallInnerDelegate<TClass, TResult>(
+        Func<TClass, TResult> deleg)
+        => instance => deleg((TClass)instance);
 }

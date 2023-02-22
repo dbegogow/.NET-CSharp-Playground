@@ -23,7 +23,7 @@ public class Program
 
         Console.WriteLine(stopWatch.Elapsed);
 
-        var deleg = PropertyHelper<HomeController>
+        var deleg = PropertyHelper
             .MakeFastPropertyGetter<IDictionary<string, object>>(property);
 
         stopWatch = Stopwatch.StartNew();
