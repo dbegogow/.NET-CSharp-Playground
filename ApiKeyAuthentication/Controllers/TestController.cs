@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ApiKeyAuthentication.Authentication;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ApiKeyAuthentication.Controllers;
 
@@ -6,7 +7,12 @@ namespace ApiKeyAuthentication.Controllers;
 [Route("api/[controller]")]
 public class TestController : ControllerBase
 {
-    [HttpGet]
+    [HttpGet("hello")]
+    [ServiceFilter(typeof(ApiKeyAuthFilter))]
     public IActionResult Get()
         => Ok("Hello World!");
+
+    [HttpGet("hello-again")]
+    public IActionResult GetAgain()
+        => Ok("Hello World again!");
 }
