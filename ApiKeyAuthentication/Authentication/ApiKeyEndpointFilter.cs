@@ -1,30 +1,31 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
+﻿using Microsoft.AspNetCore.Http;
 
 namespace ApiKeyAuthentication.Authentication;
 
-public class ApiKeyAuthFilter : /* Attribute, */ IAuthorizationFilter
+public class ApiKeyEndpointFilter : IEndpointFilter
 {
     private readonly IConfiguration _configuration;
 
-    public ApiKeyAuthFilter(IConfiguration configuration)
+    public ApiKeyEndpointFilter(IConfiguration configuration)
         => this._configuration = configuration;
 
-    public void OnAuthorization(AuthorizationFilterContext context)
+    public async ValueTask<object> InvokeAsync(
+        EndpointFilterInvocationContext context,
+        EndpointFilterDelegate next)
     {
         if (!context.HttpContext.Request.Headers.TryGetValue(AuthConstants.ApiKeyHeaderName,
             out var extractedApiKey))
         {
-            context.Result = new UnauthorizedObjectResult("API Key missing");
-            return;
+            return TypedResults.Unauthorized();
         }
 
         var apiKey = this._configuration.GetValue<string>(AuthConstants.ApiKeySectionName);
 
         if (!apiKey.Equals(extractedApiKey))
         {
-            context.Result = new UnauthorizedObjectResult("Invalid API Key");
-            return;
+            return TypedResults.Unauthorized();
         }
+
+        return await next(context);
     }
 }

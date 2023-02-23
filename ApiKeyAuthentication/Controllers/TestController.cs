@@ -5,10 +5,12 @@ namespace ApiKeyAuthentication.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+//[ServiceFilter(typeof(ApiKeyAuthFilter))]
 public class TestController : ControllerBase
 {
     [HttpGet("hello")]
     [ServiceFilter(typeof(ApiKeyAuthFilter))]
+    //[ApiKeyAuthFilter]
     public IActionResult Get()
         => Ok("Hello World!");
 

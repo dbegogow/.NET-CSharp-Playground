@@ -22,4 +22,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 
+app.Map("hello3", () => "Hello 3")
+    .AddEndpointFilter<ApiKeyEndpointFilter>();
+
 app.Run();
