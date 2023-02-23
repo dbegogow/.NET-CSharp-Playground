@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAuthorization();
+builder.Services.AddControllers(x => x.Filters.Add<ApiKeyAuthFilter>());
 
 var app = builder.Build();
 
@@ -15,9 +16,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+//app.UseMiddleware<ApiKeyAuthMiddleware>();
 app.UseAuthorization();
-app.UseMiddleware<ApiKeyAuthMiddleware>();
-
-app.MapGet("/", () => "Hello World!");
+app.MapControllers();
 
 app.Run();
