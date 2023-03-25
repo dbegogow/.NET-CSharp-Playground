@@ -1,4 +1,4 @@
-# CSharp-Playground
+# .NET-Playground
 Some C# playground projects for educational purposes
 
 ## 🛠️ Projects:
