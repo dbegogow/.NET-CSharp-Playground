@@ -6,6 +6,7 @@ Some C# playground projects for educational purposes
   * gRPC
   * Refit
   * REST
+- Caching Web Api with Redis
 - Delegates and Events
   * Basic Delegates
   * Actions and Functions
