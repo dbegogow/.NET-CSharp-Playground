@@ -1,4 +1,5 @@
 using InMemoryCachingWebApi.Data;
+using InMemoryCachingWebApi.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,8 @@ builder.Services
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<ICacheService, CacheService>();
 
 var app = builder.Build();
 
