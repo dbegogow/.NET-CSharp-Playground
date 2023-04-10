@@ -7,6 +7,7 @@ Some C# playground projects for educational purposes
   * Refit
   * REST
 - Caching Web Api with Redis
+- In-Memory Caching Web Api
 - Delegates and Events
   * Basic Delegates
   * Actions and Functions
