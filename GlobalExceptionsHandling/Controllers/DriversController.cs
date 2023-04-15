@@ -1,4 +1,5 @@
-﻿using GlobalExceptionsHandling.Models;
+﻿using GlobalExceptionsHandling.Exceptions;
+using GlobalExceptionsHandling.Models;
 using GlobalExceptionsHandling.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -41,12 +42,16 @@ public class DriversController : ControllerBase
     [HttpGet("GetDriverById")]
     public async Task<IActionResult> GetDriverById(int id)
     {
+        throw new BadRequestException("This is not a valid id");
+
         var driver = await this._driverService
             .GetDriverById(id);
 
         if (driver == null)
         {
-            return NotFound();
+            //return NotFound();
+
+            throw new NotFoundException("The id is an invalid id");
         }
 
         return Ok(driver);
