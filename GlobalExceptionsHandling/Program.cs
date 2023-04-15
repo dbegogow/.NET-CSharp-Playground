@@ -1,3 +1,4 @@
+using GlobalExceptionsHandling.Configurations;
 using GlobalExceptionsHandling.Data;
 using GlobalExceptionsHandling.Services;
 using Microsoft.EntityFrameworkCore;
@@ -28,5 +29,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.AddGlobalErrorHandler();
 
 app.Run();
