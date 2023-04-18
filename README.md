@@ -13,6 +13,7 @@ Some C# playground projects for educational purposes
   * Actions and Functions
   * Events
 - Expression Trees
+- Global Exceptions Handling
 - Dapper - Micro ORM
 - Recursion
   * Calculate Factorial
