@@ -5,7 +5,7 @@ using MongoDB.Driver;
 
 namespace WebApiWithMongoDb.Services;
 
-public class DriverService
+public class DriverService : IDriverService
 {
     private readonly IMongoCollection<Driver> _driverCollection;
 
