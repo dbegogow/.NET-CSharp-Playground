@@ -1,4 +1,9 @@
+using WebApiWithMongoDb.Configurations;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.Configure<DatabaseSettings>(
+    builder.Configuration.GetSection("MongoDatabase"));
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

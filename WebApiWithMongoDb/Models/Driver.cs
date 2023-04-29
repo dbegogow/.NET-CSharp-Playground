@@ -10,9 +10,9 @@ public class Driver
     public string? Id { get; set; }
 
     [BsonElement("Name")]
-    public string? DriverName { get; set; } = null;
+    public string? DriverName { get; set; }
 
     public int Number { get; set; }
 
-    public string? Team { get; set; } = null;
+    public string? Team { get; set; }
 }
