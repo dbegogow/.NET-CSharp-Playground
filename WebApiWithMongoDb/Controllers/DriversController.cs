@@ -11,7 +11,9 @@ public class DriversController : ControllerBase
     private readonly IDriverService _driverService;
 
     public DriversController(IDriverService driverService)
-        => this._driverService = driverService;
+    {
+        this._driverService = driverService;
+    }
 
     [HttpGet("{id:length(24)}")]
     public async Task<IActionResult> Get(string id)
