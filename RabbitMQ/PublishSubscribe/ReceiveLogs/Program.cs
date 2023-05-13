@@ -23,8 +23,6 @@ consumer.Received += (model, ea) =>
     var body = ea.Body.ToArray();
     var message = Encoding.UTF8.GetString(body);
 
-    Thread.Sleep(15000);
-
     Console.WriteLine($"Receive message: {message}");
 };
 
