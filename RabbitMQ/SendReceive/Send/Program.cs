@@ -13,13 +13,23 @@ channel.QueueDeclare(
     autoDelete: false,
     arguments: null);
 
-const string message = "Hello from the sender!";
-var body = Encoding.UTF8.GetBytes(message);
+while (true)
+{
+    var message = Console.ReadLine();
 
-channel.BasicPublish(
-    exchange: string.Empty,
-    routingKey: "hello",
-    basicProperties: null,
-    body: body);
+    if (message == null)
+    {
+        Console.WriteLine("Please write a message!");
+        continue;
+    }
 
-Console.WriteLine($"Sender sent: {message}");
+    var body = Encoding.UTF8.GetBytes(message);
+
+    channel.BasicPublish(
+        exchange: string.Empty,
+        routingKey: "hello",
+        basicProperties: null,
+        body: body);
+
+    Console.WriteLine($"--- Sender sent message: {message}");
+}
