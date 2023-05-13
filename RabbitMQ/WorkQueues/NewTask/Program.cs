@@ -6,23 +6,31 @@ var factory = new ConnectionFactory { HostName = "localhost" };
 using var connection = factory.CreateConnection();
 using var channel = connection.CreateModel();
 
-channel.QueueDeclare(queue: "hello",
-                     durable: false,
-                     exclusive: false,
-                     autoDelete: false,
-                     arguments: null);
+channel.QueueDeclare(
+    queue: "hello",
+    durable: false,
+    exclusive: false,
+    autoDelete: false,
+    arguments: null);
 
-var message = GetMessage(args);
-var body = Encoding.UTF8.GetBytes(message);
+while (true)
+{
+    Console.Write("Your message: ");
+    var message = Console.ReadLine();
 
-channel.BasicPublish(exchange: string.Empty,
-                     routingKey: "hello",
-                     basicProperties: null,
-                     body: body);
+    if (message == null)
+    {
+        Console.WriteLine("Please write a message!");
+        continue;
+    }
 
-Console.WriteLine($"--- NewTask send message: {message}");
+    var body = Encoding.UTF8.GetBytes(message);
 
-static string GetMessage(string[] args)
-    => args.Length > 0
-        ? string.Join(" ", args)
-        : "Hello from NewTask!";
+    channel.BasicPublish(
+        exchange: string.Empty,
+        routingKey: "hello",
+        basicProperties: null,
+        body: body);
+
+    Console.WriteLine($"--- Sender sent message: {message}");
+}
