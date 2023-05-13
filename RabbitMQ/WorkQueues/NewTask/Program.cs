@@ -13,6 +13,8 @@ channel.QueueDeclare(
     autoDelete: false,
     arguments: null);
 
+channel.BasicQos(prefetchSize: 0, prefetchCount: 1, global: false);
+
 while (true)
 {
     Console.Write("Your message: ");
