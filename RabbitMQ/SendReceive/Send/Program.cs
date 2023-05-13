@@ -15,6 +15,7 @@ channel.QueueDeclare(
 
 while (true)
 {
+    Console.Write("Your message: ");
     var message = Console.ReadLine();
 
     if (message == null)
