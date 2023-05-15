@@ -37,3 +37,8 @@ Some C# playground projects for educational purposes
   * Numeric IntPtr
   * Ref fields and ref scoped variables
 - Web Api with Mongo DB
+- RabbitMQ
+  * Send/Receive
+  * Work Queues
+  * Publish/Subscribe
+  * Routing
