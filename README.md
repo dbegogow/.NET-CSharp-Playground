@@ -2,25 +2,11 @@
 Some C# playground projects for educational purposes
 
 ## 🛠️ Projects:
+- Api Key Authentication
 - C# to C# Communication
   * gRPC
   * Refit
   * REST
-- Caching Web Api with Redis
-- In-Memory Caching Web Api
-- Delegates and Events
-  * Basic Delegates
-  * Actions and Functions
-  * Events
-- Expression Trees
-- Global Exceptions Handling
-- Dapper - Micro ORM
-- Recursion
-  * Calculate Factorial
-  * Sum digits of number
-  * Convert integer to binary
-  * Reverse Linked list
-- Elasticsearch
 - CSharp 11 New Features
   * Raw string literals
   * List patterns
@@ -36,4 +22,21 @@ Some C# playground projects for educational purposes
   * Improved method group conversion to delegate
   * Numeric IntPtr
   * Ref fields and ref scoped variables
+- Caching Web Api with Redis
+- Dapper - Micro ORM
+- Delegates and Events
+  * Basic Delegates
+  * Actions and Functions
+  * Events
+- Elasticsearch
+- Expression Trees
+- Global Exceptions Handling
+- In-Memory Caching Web Api
+- RabbitMQ
+  * Send/Receive
+  * Work Queues
+  * Publish/Subscribe
+  * Routing
+- Recursion
+- Reflection
 - Web Api with Mongo DB
