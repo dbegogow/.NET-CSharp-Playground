@@ -37,6 +37,7 @@ Some C# playground projects for educational purposes
   * Work Queues
   * Publish/Subscribe
   * Routing
+  * Topics
 - Recursion
 - Reflection
 - Web Api with Mongo DB
