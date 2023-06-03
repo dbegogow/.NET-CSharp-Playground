@@ -16,14 +16,14 @@
         </Grid.RowDefinitions>
 
         <Button x:Name="openConnection" Grid.Row="0" HorizontalAlignment="Center"
-                Padding="20 10" Margin="20">
+                Padding="20 10" Margin="20" Click="openConnection_Click">
             Open Connection
         </Button>
 
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
             <TextBox x:Name="messageInput" MinWidth="300" Margin="20" />
             <Button x:Name="sendMessage"
-                Padding="20 10" Margin="20">
+                Padding="20 10" Margin="20" Click="sendMessage_Click">
                 Send Message
             </Button>
         </StackPanel>
