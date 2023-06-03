@@ -38,6 +38,8 @@ Some C# playground projects for educational purposes
   * Publish/Subscribe
   * Routing
   * Topics
+  * RPC
+  * Publisher Confirms
 - Recursion
 - Reflection
 - Web Api with Mongo DB
