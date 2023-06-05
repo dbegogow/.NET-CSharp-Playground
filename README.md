@@ -42,4 +42,5 @@ Some C# playground projects for educational purposes
   * Publisher Confirms
 - Recursion
 - Reflection
+- SignalR
 - Web Api with Mongo DB
