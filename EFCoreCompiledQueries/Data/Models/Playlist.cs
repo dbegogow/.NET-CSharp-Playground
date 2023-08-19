@@ -1,6 +1,8 @@
-﻿namespace EFCoreCompiledQueries.Data.Models;
+﻿using EFCoreCompiledQueries.Data.Models.Base;
 
-public class Playlist
+namespace EFCoreCompiledQueries.Data.Models;
+
+public class Playlist : BaseEntity
 {
     public string Name { get; set; }
 

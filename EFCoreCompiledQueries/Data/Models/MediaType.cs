@@ -1,6 +1,8 @@
-﻿namespace EFCoreCompiledQueries.Data.Models;
+﻿using EFCoreCompiledQueries.Data.Models.Base;
 
-public class MediaType
+namespace EFCoreCompiledQueries.Data.Models;
+
+public class MediaType : BaseEntity
 {
     public MediaType()
     {
