@@ -1,4 +1,5 @@
 ﻿using EFCoreCompiledQueries.Data.Models;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -6,6 +7,117 @@ namespace EFCoreCompiledQueries.Data;
 
 public class SoundWaveDbContext : DbContext
 {
+    private static readonly Func<SoundWaveDbContext, int, bool> _queryAlbumExists =
+        EF.CompileQuery((SoundWaveDbContext db, int id) => db.Albums.Any(a => a.Id == id));
+
+    private static readonly Func<SoundWaveDbContext, IEnumerable<Album>> _queryGetAllAlbums =
+        EF.CompileQuery((SoundWaveDbContext db) => db.Albums);
+
+    private static readonly Func<SoundWaveDbContext, int, Album> _queryGetAlbum =
+        EF.CompileQuery((SoundWaveDbContext db, int id) => db.Albums.FirstOrDefault(a => a.Id == id));
+
+    private static readonly Func<SoundWaveDbContext, int, IEnumerable<Album>> _queryGetAlbumsByArtistId =
+        EF.CompileQuery((SoundWaveDbContext db, int id) => db.Albums.Where(a => a.ArtistId == id));
+
+    private static readonly Func<SoundWaveDbContext, IEnumerable<Artist>> _queryGetAllArtists =
+        EF.CompileQuery((SoundWaveDbContext db) => db.Artists);
+
+    private static readonly Func<SoundWaveDbContext, int, Artist> _queryGetArtist =
+        EF.CompileQuery((SoundWaveDbContext db, int id) => db.Artists.FirstOrDefault(a => a.Id == id));
+
+    private static readonly Func<SoundWaveDbContext, IEnumerable<Customer>> _queryGetAllCustomers =
+        EF.CompileQuery((SoundWaveDbContext db) => db.Customers);
+
+    private static readonly Func<SoundWaveDbContext, int, Customer> _queryGetCustomer =
+        EF.CompileQuery((SoundWaveDbContext db, int id) => db.Customers.FirstOrDefault(c => c.Id == id));
+
+    private static readonly Func<SoundWaveDbContext, int, IEnumerable<Customer>> _queryGetCustomerBySupportRepId =
+        EF.CompileQuery((SoundWaveDbContext db, int id) => db.Customers.Where(a => a.SupportRepId == id));
+
+    private static readonly Func<SoundWaveDbContext, IEnumerable<Employee>> _queryGetAllEmployees =
+        EF.CompileQuery((SoundWaveDbContext db) => db.Employees);
+
+    private static readonly Func<SoundWaveDbContext, int, Employee> _queryGetEmployee =
+        EF.CompileQuery((SoundWaveDbContext db, int id) => db.Employees.FirstOrDefault(e => e.Id == id));
+
+    private static readonly Func<SoundWaveDbContext, int, IEnumerable<Employee>> _queryGetDirectReports =
+        EF.CompileQuery((SoundWaveDbContext db, int id) => db.Employees.Where(e => e.ReportsTo == id));
+
+    private static readonly Func<SoundWaveDbContext, int, Employee> _queryGetReportsTo =
+        EF.CompileQuery((SoundWaveDbContext db, int id) => db.Employees.First(e => e.ReportsTo == id));
+
+    private static readonly Func<SoundWaveDbContext, IEnumerable<Genre>> _queryGetAllGenres =
+        EF.CompileQuery((SoundWaveDbContext db) => db.Genres);
+
+    private static readonly Func<SoundWaveDbContext, int, Genre> _queryGetGenre =
+        EF.CompileQuery((SoundWaveDbContext db, int id) => db.Genres.FirstOrDefault(g => g.Id == id));
+
+    private static readonly Func<SoundWaveDbContext, IEnumerable<InvoiceLine>> _queryGetAllInvoiceLines =
+        EF.CompileQuery((SoundWaveDbContext db) => db.InvoiceLines);
+
+    private static readonly Func<SoundWaveDbContext, int, InvoiceLine> _queryGetInvoiceLine =
+        EF.CompileQuery((SoundWaveDbContext db, int id) => db.InvoiceLines.FirstOrDefault(i => i.Id == id));
+
+    private static readonly Func<SoundWaveDbContext, int, IEnumerable<InvoiceLine>> _queryGetInvoiceLinesByInvoiceId =
+        EF.CompileQuery((SoundWaveDbContext db, int id) => db.InvoiceLines.Where(a => a.InvoiceId == id));
+
+    private static readonly Func<SoundWaveDbContext, int, IEnumerable<InvoiceLine>> _queryGetInvoiceLinesByTrackId =
+        EF.CompileQuery((SoundWaveDbContext db, int id) => db.InvoiceLines.Where(a => a.TrackId == id));
+
+    private static readonly Func<SoundWaveDbContext, IEnumerable<Invoice>> _queryGetAllInvoices =
+        EF.CompileQuery((SoundWaveDbContext db) => db.Invoices);
+
+    private static readonly Func<SoundWaveDbContext, int, Invoice> _queryGetInvoice =
+        EF.CompileQuery((SoundWaveDbContext db, int id) => db.Invoices.FirstOrDefault(i => i.Id == id));
+
+    private static readonly Func<SoundWaveDbContext, int, IEnumerable<Invoice>> _queryGetInvoicesByCustomerId =
+        EF.CompileQuery((SoundWaveDbContext db, int id) => db.Invoices.Where(a => a.CustomerId == id));
+
+    private static readonly Func<SoundWaveDbContext, IEnumerable<MediaType>> _queryGetAllMediaTypes =
+        EF.CompileQuery((SoundWaveDbContext db) => db.MediaTypes);
+
+    private static readonly Func<SoundWaveDbContext, int, MediaType> _queryGetMediaType =
+        EF.CompileQuery((SoundWaveDbContext db, int id) => db.MediaTypes.FirstOrDefault(m => m.Id == id));
+
+    private static readonly Func<SoundWaveDbContext, IEnumerable<Playlist>> _queryGetAllPlaylists =
+        EF.CompileQuery((SoundWaveDbContext db) => db.Playlists);
+
+    private static readonly Func<SoundWaveDbContext, int, Playlist> _queryGetPlaylist =
+        EF.CompileQuery((SoundWaveDbContext db, int id) => db.Playlists.FirstOrDefault(p => p.Id == id));
+
+    private static readonly Func<SoundWaveDbContext, int, IEnumerable<Playlist>> _queryGetPlaylistsByTrackId =
+        EF.CompileQuery((SoundWaveDbContext db, int id) => db.Tracks.Where(t => t.Id == id).SelectMany(t => t.Playlists!));
+
+    private static readonly Func<SoundWaveDbContext, IEnumerable<Track>> _queryGetAllTracks =
+        EF.CompileQuery((SoundWaveDbContext db) => db.Tracks);
+
+    private static readonly Func<SoundWaveDbContext, int, Track> _queryGetTrack =
+        EF.CompileQuery((SoundWaveDbContext db, int id) => db.Tracks.FirstOrDefault(t => t.Id == id));
+
+    private static readonly Func<SoundWaveDbContext, int, IEnumerable<Track>> _queryGetTracksByAlbumId =
+        EF.CompileQuery((SoundWaveDbContext db, int id) => db.Tracks.Where(a => a.AlbumId == id));
+
+    private static readonly Func<SoundWaveDbContext, int, IEnumerable<Track>> _queryGetTracksByGenreId =
+        EF.CompileQuery((SoundWaveDbContext db, int id) => db.Tracks.Where(a => a.GenreId == id));
+
+    private static readonly Func<SoundWaveDbContext, int, IEnumerable<Track>> _queryGetTracksByMediaTypeId =
+        EF.CompileQuery((SoundWaveDbContext db, int id) => db.Tracks.Where(a => a.MediaTypeId == id));
+
+    private static readonly Func<SoundWaveDbContext, int, IEnumerable<Track>> _queryGetTracksByArtistId =
+        EF.CompileQuery((SoundWaveDbContext db, int id) =>
+            db.Albums.Where(a => a.ArtistId == id).SelectMany(t => t.Tracks));
+
+    private static readonly Func<SoundWaveDbContext, int, IEnumerable<Track>> _queryGetTracksByInvoiceId =
+        EF.CompileQuery((SoundWaveDbContext db, int id) =>
+            db.Tracks.Where(c => c.InvoiceLines.Any(o => o.InvoiceId == id)));
+
+    private static readonly Func<SoundWaveDbContext, int, IEnumerable<Invoice>> _queryGetInvoicesByEmployeeId =
+        EF.CompileQuery((SoundWaveDbContext db, int id) =>
+            db.Customers.Where(a => a.SupportRepId == id).SelectMany(t => t.Invoices));
+
+    private static readonly Func<SoundWaveDbContext, int, IEnumerable<Track>> _queryGetTracksByPlaylistId =
+        EF.CompileQuery((SoundWaveDbContext db, int id) => db.Playlists.Where(a => a.Id == id).SelectMany(t => t.Tracks!));
+
     private static readonly Func<SoundWaveDbContext, int, Task<bool>> _queryAlbumExistsAsync =
         EF.CompileAsyncQuery((SoundWaveDbContext db, int id) => db.Albums.Any(a => a.Id == id));
 
@@ -427,6 +539,78 @@ public class SoundWaveDbContext : DbContext
     private void OnModelCreatingPartial(ModelBuilder modelBuilder)
     {
     }
+
+    public bool AlbumExists(int id) => _queryAlbumExists(this, id);
+
+    public IEnumerable<Album> GetAllAlbums() => _queryGetAllAlbums(this);
+
+    public Album GetAlbum(int id) => _queryGetAlbum(this, id);
+
+    public IEnumerable<Album> GetAlbumsByArtistId(int id) => _queryGetAlbumsByArtistId(this, id);
+
+    public IEnumerable<Artist> GetAllArtists() => _queryGetAllArtists(this);
+
+    public Artist GetArtist(int id) => _queryGetArtist(this, id);
+
+    public IEnumerable<Customer> GetAllCustomers() => _queryGetAllCustomers(this);
+
+    public Customer GetCustomer(int id) => _queryGetCustomer(this, id);
+
+    public IEnumerable<Customer> GetCustomerBySupportRepId(int id) => _queryGetCustomerBySupportRepId(this, id);
+
+    public IEnumerable<Employee> GetAllEmployees() => _queryGetAllEmployees(this);
+
+    public Employee GetEmployee(int id) => _queryGetEmployee(this, id);
+
+    public IEnumerable<Employee> GetEmployeeDirectReports(int id) => _queryGetDirectReports(this, id);
+
+    public Employee GetEmployeeGetReportsTo(int id) => _queryGetReportsTo(this, id);
+
+    public IEnumerable<Genre> GetAllGenres() => _queryGetAllGenres(this);
+
+    public Genre GetGenre(int id) => _queryGetGenre(this, id);
+
+    public IEnumerable<InvoiceLine> GetAllInvoiceLines() => _queryGetAllInvoiceLines(this);
+
+    public InvoiceLine GetInvoiceLine(int id) => _queryGetInvoiceLine(this, id);
+
+    public IEnumerable<InvoiceLine> GetInvoiceLinesByInvoiceId(int id) => _queryGetInvoiceLinesByInvoiceId(this, id);
+
+    public IEnumerable<InvoiceLine> GetInvoiceLinesByTrackId(int id) => _queryGetInvoiceLinesByTrackId(this, id);
+
+    public IEnumerable<Invoice> GetAllInvoices() => _queryGetAllInvoices(this);
+
+    public Invoice GetInvoice(int id) => _queryGetInvoice(this, id);
+
+    public IEnumerable<Invoice> GetInvoicesByCustomerId(int id) => _queryGetInvoicesByCustomerId(this, id);
+
+    public IEnumerable<MediaType> GetAllMediaTypes() => _queryGetAllMediaTypes(this);
+
+    public MediaType GetMediaType(int id) => _queryGetMediaType(this, id);
+
+    public IEnumerable<Playlist> GetAllPlaylists() => _queryGetAllPlaylists(this);
+
+    public Playlist GetPlaylist(int id) => _queryGetPlaylist(this, id);
+
+    public IEnumerable<Playlist> GetPlaylistsByTrackId(int id) => _queryGetPlaylistsByTrackId(this, id);
+
+    public IEnumerable<Track> GetAllTracks() => _queryGetAllTracks(this);
+
+    public Track GetTrack(int id) => _queryGetTrack(this, id);
+
+    public IEnumerable<Track> GetTracksByAlbumId(int id) => _queryGetTracksByAlbumId(this, id);
+
+    public IEnumerable<Track> GetTracksByGenreId(int id) => _queryGetTracksByGenreId(this, id);
+
+    public IEnumerable<Track> GetTracksByMediaTypeId(int id) => _queryGetTracksByMediaTypeId(this, id);
+
+    public IEnumerable<Track> GetTracksByArtistId(int id) => _queryGetTracksByArtistId(this, id);
+
+    public IEnumerable<Track> GetTracksByInvoiceId(int id) => _queryGetTracksByInvoiceId(this, id);
+
+    public IEnumerable<Invoice> GetInvoicesByEmployeeId(int id) => _queryGetInvoicesByEmployeeId(this, id);
+
+    public IEnumerable<Track> GetTracksByPlaylistId(int id) => _queryGetTracksByPlaylistId(this, id);
 
     public Task<bool> AlbumExistsAsync(int id) => _queryAlbumExistsAsync(this, id);
 
