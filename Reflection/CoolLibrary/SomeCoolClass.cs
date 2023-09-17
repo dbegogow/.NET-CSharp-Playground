@@ -2,11 +2,10 @@
 
 internal static class SomeCoolClass
 {
+    internal static string Name { get; set; }
+
     internal static string CoolMethod(int number, string text)
     {
-        Console.WriteLine(number);
-        Console.WriteLine(text);
-
         return number + text;
     }
 }

@@ -10,10 +10,12 @@ public class Program
 
         var type = assembly.GetType("CoolLibrary.SomeCoolClass");
 
-        var method = type.GetMethod("CoolMethod", BindingFlags.NonPublic | BindingFlags.Static);
+        dynamic someCoolClass = new ExposedObject(type);
 
-        var result = (string)method.Invoke(null, new object[] { 42, "some text" });
+        string result = someCoolClass.CoolMethod(42, "Something cool");
 
         Console.WriteLine(result);
+
+        someCoolClass.Name = "My cool name";
     }
 }
