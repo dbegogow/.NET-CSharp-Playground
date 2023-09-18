@@ -25,6 +25,20 @@ public class ExposedObject : DynamicObject
         return true;
     }
 
+    public override bool TryGetMember(GetMemberBinder binder, out object result)
+    {
+        var property = this.type.GetProperty(binder.Name, flags);
+
+        if (property == null)
+        {
+            return base.TryGetMember(binder, out result);
+        }
+
+        result = property.GetValue(null);
+
+        return true;
+    }
+
     public override bool TryInvokeMember(InvokeMemberBinder binder, object[] args, out object result)
     {
         var method = this.type.GetMethod(binder.Name, flags);

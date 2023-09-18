@@ -17,5 +17,7 @@ public class Program
         Console.WriteLine(result);
 
         someCoolClass.Name = "My cool name";
+
+        Console.WriteLine(someCoolClass.Name);
     }
 }
