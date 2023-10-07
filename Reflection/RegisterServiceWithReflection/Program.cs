@@ -13,5 +13,5 @@ using (host)
 {
     var worker = host.Services.GetRequiredService<Worker>();
 
-    await worker.RunAsynnc();
+    worker.Run();
 }

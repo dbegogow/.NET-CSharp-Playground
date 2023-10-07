@@ -1,6 +1,8 @@
 ﻿namespace RegisterServiceWithReflection.Services.Interfaces;
 
-public interface IDealershipService
+using RegisterServiceWithReflection.Infrastructure.ServiceInterfaces;
+
+public interface IDealershipService : IScopedService
 {
     bool Register(
         string model,

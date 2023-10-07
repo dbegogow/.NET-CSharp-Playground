@@ -1,6 +1,8 @@
 ﻿namespace RegisterServiceWithReflection.Services.Interfaces;
 
-public interface IRentService
+using RegisterServiceWithReflection.Infrastructure.ServiceInterfaces;
+
+public interface IRentService : ISingletonService
 {
     string ChooseCar(string idNumber);
 }
