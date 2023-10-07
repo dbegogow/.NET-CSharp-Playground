@@ -15,3 +15,5 @@ using (host)
 
     worker.Run();
 }
+
+// Library for register services automatically by convention - https://github.com/khellang/Scrutor
