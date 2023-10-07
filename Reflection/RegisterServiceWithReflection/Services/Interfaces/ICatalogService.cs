@@ -1,6 +1,8 @@
 ﻿namespace RegisterServiceWithReflection.Services.Interfaces;
 
-public interface ICatalogService
+using RegisterServiceWithReflection.Infrastructure.Services;
+
+public interface ICatalogService : IService
 {
     IEnumerable<string> ListAll();
 }
