@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace AutoMapperReflectionRegistration.Infrastructure.Mapping;
+namespace AutoMapperReflectionRegistration.Infrastructure.Mapping.Interfaces;
 
 public interface IMapExplicitly
 {

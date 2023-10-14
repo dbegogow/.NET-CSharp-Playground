@@ -1,10 +1,15 @@
 ﻿using AutoMapperReflectionRegistration.Engine;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = new HostBuilder();
 
-//builder.ConfigureServices(services => services.AddConventionalServices());
+builder.ConfigureServices(services =>
+{
+    services.AddSingleton<Worker>();
+
+    services.AddAutoMapper(typeof(Program));
+});
 
 var host = builder.Build();
 

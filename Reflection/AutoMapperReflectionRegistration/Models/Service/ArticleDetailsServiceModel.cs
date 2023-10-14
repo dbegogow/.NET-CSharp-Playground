@@ -1,5 +1,5 @@
 ﻿using AutoMapperReflectionRegistration.Models.Entity;
-using AutoMapperReflectionRegistration.Infrastructure.Mapping;
+using AutoMapperReflectionRegistration.Infrastructure.Mapping.Interfaces;
 using AutoMapper;
 
 namespace AutoMapperReflectionRegistration.Models.Service;
