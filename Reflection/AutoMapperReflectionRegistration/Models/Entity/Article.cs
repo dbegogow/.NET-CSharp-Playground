@@ -8,5 +8,7 @@ public class Article
 
     public string Description { get; set; }
 
+    public DateTime CreatedOn { get; set; }
+
     public Author Author { get; set; }
 }
