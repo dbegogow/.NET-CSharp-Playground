@@ -1,10 +1,26 @@
-﻿namespace CustomValidator
+﻿namespace CustomValidator;
+
+public class Program
 {
-    internal class Program
+    public static void Main()
     {
-        static void Main(string[] args)
+        var cat = new Cat();
+
+        var validator = new ObjectValidator();
+
+        var result = validator.Validate(cat);
+
+        Console.WriteLine(result.IsValid ? "Valid" : "Invalid");
+
+        foreach (var error in result.Errors)
         {
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine(error.Key);
+
+
+            foreach (var errorMessage in error.Value)
+            {
+                Console.WriteLine($"--- {errorMessage}");
+            }
         }
     }
 }
