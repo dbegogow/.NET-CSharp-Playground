@@ -4,7 +4,10 @@ public class Program
 {
     public static void Main()
     {
-        var cat = new Cat();
+        var cat = new Cat
+        {
+            Name = "A"
+        };
 
         var validator = new ObjectValidator();
 
