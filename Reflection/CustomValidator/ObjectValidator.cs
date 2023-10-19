@@ -9,16 +9,18 @@ public class ObjectValidator
     {
         if (obj == null)
         {
-            var result = new ValidationResult(false);
+            var result = new ValidationResult();
 
-            result.Errors.Add("Object", new List<string> { "Object is null." });
+            result.AddError("Object", "Object is null.");
 
             return result;
         }
 
         var objectType = obj.GetType();
 
-        var properties = objectType.GetProperties(BindingFlags.NonPublic | BindingFlags.Instance);
+        var properties = objectType.GetProperties();
+
+        var validationResult = new ValidationResult();
 
         foreach (var property in properties)
         {
@@ -33,9 +35,13 @@ public class ObjectValidator
 
                 if (!isValid)
                 {
-                    var errorMessage = attribute.FormatErrorMessage();
+                    var errorMessage = attribute.FormatErrorMessage(propertyName);
+
+                    validationResult.AddError(propertyName, errorMessage);
                 }
             }
         }
+
+        return validationResult;
     }
 }
