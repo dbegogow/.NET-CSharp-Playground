@@ -8,7 +8,7 @@ public class Cat
     [StringLength(20, MinimumLength = 2)]
     public string Name { get; set; }
 
-    [Range(0, 20)]
+    [Range(1, 20)]
     public int Age { get; set; }
 
     [StringLength(10)]
