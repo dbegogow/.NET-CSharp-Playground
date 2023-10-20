@@ -7,8 +7,8 @@ public class Program
         var cat = new Cat
         {
             Name = "John",
-            Age = 1,
-            Color = "Yellow"
+            Age = 2,
+            Color = "Black"
         };
 
         var validator = new ObjectValidator();

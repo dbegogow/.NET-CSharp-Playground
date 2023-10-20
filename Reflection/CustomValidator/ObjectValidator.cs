@@ -16,24 +16,37 @@ public class ObjectValidator
             return result;
         }
 
+        var validationResult = new ValidationResult();
+
+        this.ValidateValidatable(obj, validationResult);
+        this.ValidateProperties(obj, validationResult);
+
+        return validationResult;
+    }
+
+    private void ValidateValidatable(object obj, ValidationResult validationResult)
+    {
+        if (obj is not IValidatable validatable)
+        {
+            return;
+        }
+
+        var additionalErrors = validatable.Validate();
+
+        foreach (var additionalError in additionalErrors)
+        {
+            foreach (var additionalErrorsValue in additionalError.Value)
+            {
+                validationResult.AddError(additionalError.Key, additionalErrorsValue);
+            }
+        }
+    }
+
+    private void ValidateProperties(object obj, ValidationResult validationResult)
+    {
         var objectType = obj.GetType();
 
         var properties = objectType.GetProperties();
-
-        var validationResult = new ValidationResult();
-
-        if (obj is IValidatable validatable)
-        {
-            var additionalErrors = validatable.Validate();
-
-            foreach (var additionalError in additionalErrors)
-            {
-                foreach (var additionalErrorsValue in additionalError.Value)
-                {
-                    validationResult.AddError(additionalError.Key, additionalErrorsValue);
-                }
-            }
-        }
 
         foreach (var property in properties)
         {
@@ -54,7 +67,5 @@ public class ObjectValidator
                 }
             }
         }
-
-        return validationResult;
     }
 }
