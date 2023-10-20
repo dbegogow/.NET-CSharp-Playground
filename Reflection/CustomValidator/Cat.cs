@@ -12,5 +12,6 @@ public class Cat
     public int Age { get; set; }
 
     [StringLength(10)]
+    [Color("Black", "White", "Red")]
     public string Color { get; set; }
 }

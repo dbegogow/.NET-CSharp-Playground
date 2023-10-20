@@ -6,7 +6,7 @@ public class Program
     {
         var cat = new Cat
         {
-            Name = "A"
+            Color = "Yellow"
         };
 
         var validator = new ObjectValidator();
