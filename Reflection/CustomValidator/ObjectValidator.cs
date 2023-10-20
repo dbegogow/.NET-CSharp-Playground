@@ -1,10 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Reflection;
+﻿using System.Reflection;
+using System.ComponentModel.DataAnnotations;
 
 namespace CustomValidator;
 
 public class ObjectValidator
 {
+    private readonly static IDictionary<Type, List<PropertyAttributes>> cache
+        = new Dictionary<Type, List<PropertyAttributes>>();
+
     public ValidationResult Validate(object obj)
     {
         if (obj == null)
@@ -46,14 +49,16 @@ public class ObjectValidator
     {
         var objectType = obj.GetType();
 
-        var properties = objectType.GetProperties();
+        this.CacheObjectProperties(objectType);
 
-        foreach (var property in properties)
+        var objectProperties = cache[objectType];
+
+        foreach (var property in objectProperties)
         {
             var propertyName = property.Name;
-            var propertyValue = property.GetValue(obj);
+            var propertyValue = property.Info.GetValue(obj);
 
-            var attributes = property.GetCustomAttributes<ValidationAttribute>();
+            var attributes = property.Attributes;
 
             foreach (var attribute in attributes)
             {
@@ -67,5 +72,38 @@ public class ObjectValidator
                 }
             }
         }
+    }
+
+    private void CacheObjectProperties(Type objectType)
+    {
+        if (cache.ContainsKey(objectType))
+        {
+            return;
+        }
+
+        var typeProperties = objectType.GetProperties();
+
+        cache[objectType] = new List<PropertyAttributes>();
+
+        foreach (var property in typeProperties)
+        {
+            var attributes = property.GetCustomAttributes<ValidationAttribute>();
+
+            cache[objectType].Add(new PropertyAttributes
+            {
+                Name = property.Name,
+                Info = property,
+                Attributes = attributes
+            });
+        }
+    }
+
+    private class PropertyAttributes
+    {
+        public string Name { get; set; }
+
+        public PropertyInfo Info { get; set; }
+
+        public IEnumerable<ValidationAttribute> Attributes { get; set; }
     }
 }
