@@ -21,7 +21,7 @@ public class Cat : IValidatable
 
         if (this.Age < 2 && this.Name != "Unknown")
         {
-            result["Object"] = new List<string> { "This cat is too young to have a name." };
+            result[this.GetType().Name] = new List<string> { "This cat is too young to have a name." };
         }
 
         return result;

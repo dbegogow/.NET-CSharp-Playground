@@ -22,6 +22,19 @@ public class ObjectValidator
 
         var validationResult = new ValidationResult();
 
+        if (obj is IValidatable validatable)
+        {
+            var additionalErrors = validatable.Validate();
+
+            foreach (var additionalError in additionalErrors)
+            {
+                foreach (var additionalErrorsValue in additionalError.Value)
+                {
+                    validationResult.AddError(additionalError.Key, additionalErrorsValue);
+                }
+            }
+        }
+
         foreach (var property in properties)
         {
             var propertyName = property.Name;

@@ -6,6 +6,8 @@ public class Program
     {
         var cat = new Cat
         {
+            Name = "John",
+            Age = 1,
             Color = "Yellow"
         };
 
