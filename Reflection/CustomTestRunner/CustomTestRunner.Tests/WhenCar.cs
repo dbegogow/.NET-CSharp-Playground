@@ -6,25 +6,27 @@ namespace CustomTestRunner.Tests;
 [Subject("Car")]
 public class WhenCarIsStarted
 {
-    private static Car car;
+    const string Model = "BMW";
+
+    static Car car;
 
     Given Context = () =>
     {
         car = new Car();
-        car.Produce("BMW");
+        car.Produce(Model);
     };
 
     Because Of = () => car.Start();
 
     It ShouldBeRunning = () => car.IsRunning.ShouldBe(true);
 
-    It ShouldHaveCorrectModel = () => car.Model.ShouldBe("BMW");
+    It ShouldHaveCorrectModel = () => car.Model.ShouldBe(Model);
 }
 
 [Subject("Car")]
 public class WhenCarIsStopped
 {
-    private static Car car;
+    static Car car;
 
     Given Context = () => car = new Car();
 
