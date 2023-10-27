@@ -14,11 +14,11 @@ public class WhenCarIsStarted
         car.Produce("BMW");
     };
 
-    Because Of = () => this.car.Start();
+    Because Of = () => car.Start();
 
-    It ShouldBeRunning = () => this.car.IsRunning.ShouldBe(true);
+    It ShouldBeRunning = () => car.IsRunning.ShouldBe(true);
 
-    It ShouldHaveCorrectModel = () => this.car.Model.ShouldBe("BMW");
+    It ShouldHaveCorrectModel = () => car.Model.ShouldBe("BMW");
 }
 
 [Subject("Car")]
