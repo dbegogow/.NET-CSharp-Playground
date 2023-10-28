@@ -5,6 +5,13 @@ namespace CustomTestRunner;
 
 public class TestRunner
 {
+    private static int totalTests = 0;
+    private static int passingTests = 0;
+    private static int failedTests = 0;
+    private static int testsErrors = 0;
+
+    public static ITestReporter TestReporter { get; set; } = new ConsoleReporter();
+
     public static void ExecuteTests(params Type[] types)
     {
         var assemblies = types
@@ -16,16 +23,18 @@ public class TestRunner
                 .GetCustomAttribute<SubjectAttribute>()
                 .Name);
 
-        Console.WriteLine("Running tests...");
+        TestReporter.ReportLine("Running tests...");
 
         foreach (var tests in testsBySubject)
         {
             var testSubject = tests.Key;
 
-            Console.WriteLine($"-- Running tests for: '{testSubject}'...");
+            TestReporter.ReportLine($"-- Running tests for: '{testSubject}'...");
 
             foreach (var test in tests)
             {
+                totalTests++;
+
                 var testComponents = test.GetFields(BindingFlags.Instance | BindingFlags.NonPublic);
 
                 var givenComponents = GetTestComponents(testComponents, typeof(Given));
@@ -42,12 +51,18 @@ public class TestRunner
                 }
                 catch (Exception exception)
                 {
-                    Console.WriteLine();
-                    Console.WriteLine($"Exception Message {exception.Message}");
-                    Console.WriteLine();
+                    TestReporter.ReportLine();
+                    TestReporter.ReportLine("Unhandled exception in test code!");
+                    TestReporter.ReportLine(exception.ToString());
+                    TestReporter.ReportLine();
+
+                    testsErrors++;
                 }
             }
         }
+
+        TestReporter.ReportLine();
+        TestReporter.ReportLine(new string('-', 50));
     }
 
     private static List<Type> FindTests(params Assembly[] assemblies)
@@ -110,17 +125,23 @@ public class TestRunner
 
         foreach (var it in its)
         {
-            Console.Write($"----Running {testPreffix}It{it.Name.Capitalize()} - ");
+            TestReporter.Report($"----Running {testPreffix}It{it.Name.Capitalize()} - ");
 
             try
             {
                 it.Value.Invoke();
-                Console.WriteLine("Passing");
+                TestReporter.ReportLine("Passing");
+
+                passingTests++;
             }
-            catch
+            catch (Exception exception)
             {
-                Console.WriteLine("Failed");
-                throw;
+                TestReporter.ReportLine("Failed");
+                TestReporter.ReportLine();
+                TestReporter.ReportLine($"Exception Message: {exception.Message}");
+                TestReporter.ReportLine();
+
+                failedTests++;
             }
         }
     }

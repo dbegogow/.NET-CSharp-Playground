@@ -18,7 +18,7 @@ public class WhenCarIsStarted
 
     Because Of = () => car.Start();
 
-    It ShouldBeRunning = () => car.IsRunning.ShouldBe(true);
+    It ShouldBeRunning = () => car.IsRunning.ShouldBe(false);
 
     It ShouldHaveCorrectModel = () => car.Model.ShouldBe(Model);
 }
