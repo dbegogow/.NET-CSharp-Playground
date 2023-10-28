@@ -11,21 +11,33 @@ public class TestRunner
             .Select(t => t.Assembly)
             .ToArray();
 
-        var tests = FindTests(assemblies);
+        var testsBySubject = FindTests(assemblies)
+            .GroupBy(t => t
+                .GetCustomAttribute<SubjectAttribute>()
+                .Name);
 
-        foreach (var test in tests)
+        Console.WriteLine("Running tests...");
+
+        foreach (var tests in testsBySubject)
         {
-            var testComponents = test.GetFields(BindingFlags.Instance | BindingFlags.NonPublic);
+            var testSubject = tests.Key;
 
-            var givenComponents = GetTestComponents(testComponents, typeof(Given));
-            var becauseComponents = GetTestComponents(testComponents, typeof(Because));
-            var itComponents = GetTestComponents(testComponents, typeof(It));
+            Console.WriteLine($"-- Running tests for: '{testSubject}'...");
 
-            var testInstance = Activator.CreateInstance(test);
+            foreach (var test in tests)
+            {
+                var testComponents = test.GetFields(BindingFlags.Instance | BindingFlags.NonPublic);
 
-            RunGivenComponents(givenComponents, testInstance);
-            RunBecauseComponents(becauseComponents, testInstance);
-            RunItComponents(itComponents, testInstance);
+                var givenComponents = GetTestComponents(testComponents, typeof(Given));
+                var becauseComponents = GetTestComponents(testComponents, typeof(Because));
+                var itComponents = GetTestComponents(testComponents, typeof(It));
+
+                var testInstance = Activator.CreateInstance(test);
+
+                RunGivenComponents(givenComponents, testInstance);
+                RunBecauseComponents(becauseComponents, testInstance);
+                RunItComponents(itComponents, testInstance, test.Name);
+            }
         }
     }
 
@@ -77,13 +89,32 @@ public class TestRunner
 
     private static void RunItComponents(
         IEnumerable<FieldInfo> testComponents,
-        object test)
+        object test,
+        string testPreffix)
     {
-        var values = GetComponents<It>(testComponents, test);
+        var its = testComponents
+            .Select(tc => new
+            {
+                Name = tc.Name,
+                Value = (It)tc.GetValue(test)
+            });
 
-        foreach (var value in values)
+        foreach (var it in its)
         {
-            value.Invoke();
+            Console.Write($"----Running {testPreffix}It{it.Name.Capitalize()} - ");
+
+            try
+            {
+                it.Value.Invoke();
+                Console.WriteLine("Passing");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Failed");
+                Console.WriteLine();
+                Console.WriteLine($"Exception Message: {e.Message}");
+                Console.WriteLine();
+            }
         }
     }
 
