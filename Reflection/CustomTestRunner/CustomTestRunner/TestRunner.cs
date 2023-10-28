@@ -34,9 +34,18 @@ public class TestRunner
 
                 var testInstance = Activator.CreateInstance(test);
 
-                RunGivenComponents(givenComponents, testInstance);
-                RunBecauseComponents(becauseComponents, testInstance);
-                RunItComponents(itComponents, testInstance, test.Name);
+                try
+                {
+                    RunGivenComponents(givenComponents, testInstance);
+                    RunBecauseComponents(becauseComponents, testInstance);
+                    RunItComponents(itComponents, testInstance, test.Name);
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine($"Exception Message {exception.Message}");
+                    Console.WriteLine();
+                }
             }
         }
     }
@@ -108,12 +117,10 @@ public class TestRunner
                 it.Value.Invoke();
                 Console.WriteLine("Passing");
             }
-            catch (Exception e)
+            catch
             {
                 Console.WriteLine("Failed");
-                Console.WriteLine();
-                Console.WriteLine($"Exception Message: {e.Message}");
-                Console.WriteLine();
+                throw;
             }
         }
     }
