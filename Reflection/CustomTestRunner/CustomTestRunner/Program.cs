@@ -1,9 +1,9 @@
-﻿namespace CustomTestRunner;
+﻿using CustomTestRunner.Tests;
+
+namespace CustomTestRunner;
 
 public class Program
 {
     public static void Main()
-    {
-        Console.WriteLine("Hello, World!");
-    }
+        => TestRunner.ExecuteTests(typeof(Car));
 }
