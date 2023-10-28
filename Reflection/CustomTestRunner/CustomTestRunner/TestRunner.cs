@@ -5,10 +5,10 @@ namespace CustomTestRunner;
 
 public class TestRunner
 {
-    private static int totalTests = 0;
-    private static int passingTests = 0;
-    private static int failedTests = 0;
-    private static int testsErrors = 0;
+    private static int totalTests;
+    private static int passingTests;
+    private static int failedTests;
+    private static int testsErrors;
 
     public static ITestReporter TestReporter { get; set; } = new ConsoleReporter();
 
@@ -63,6 +63,14 @@ public class TestRunner
 
         TestReporter.ReportLine();
         TestReporter.ReportLine(new string('-', 50));
+        TestReporter.ReportLine($"Total Tests: {totalTests}");
+        TestReporter.ReportLine($"Passing Tests: {passingTests}");
+        TestReporter.ReportLine($"Failed Tests: {failedTests}");
+
+        if (testsErrors > 0)
+        {
+            TestReporter.ReportLine($"Tests with Errors: {testsErrors}");
+        }
     }
 
     private static List<Type> FindTests(params Assembly[] assemblies)
