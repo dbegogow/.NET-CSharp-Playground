@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionExpressions", "Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefReadonlyParameters", "RefReadonlyParameters\RefReadonlyParameters.csproj", "{FD26F005-C71A-4AC9-B631-BDD437E3B05B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DefaultLambdaParameters", "DefaultLambdaParameters\DefaultLambdaParameters.csproj", "{4B699645-EF83-45D2-A945-D25A53803CE3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{FD26F005-C71A-4AC9-B631-BDD437E3B05B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD26F005-C71A-4AC9-B631-BDD437E3B05B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD26F005-C71A-4AC9-B631-BDD437E3B05B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B699645-EF83-45D2-A945-D25A53803CE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B699645-EF83-45D2-A945-D25A53803CE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B699645-EF83-45D2-A945-D25A53803CE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B699645-EF83-45D2-A945-D25A53803CE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
