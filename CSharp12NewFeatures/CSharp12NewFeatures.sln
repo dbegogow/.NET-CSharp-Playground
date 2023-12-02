@@ -5,15 +5,17 @@ VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrimaryConstructors", "PrimaryConstructors\PrimaryConstructors.csproj", "{7FC9A754-918D-4BF0-8CCA-2F0E4B771A12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionExpressions", "CollectionExpressions\CollectionExpressions.csproj", "{7E4E4BFC-7B2D-469D-9CB2-CA1D46E82A83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollectionExpressions", "CollectionExpressions\CollectionExpressions.csproj", "{7E4E4BFC-7B2D-469D-9CB2-CA1D46E82A83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefReadonlyParameters", "RefReadonlyParameters\RefReadonlyParameters.csproj", "{FD26F005-C71A-4AC9-B631-BDD437E3B05B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RefReadonlyParameters", "RefReadonlyParameters\RefReadonlyParameters.csproj", "{FD26F005-C71A-4AC9-B631-BDD437E3B05B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DefaultLambdaParameters", "DefaultLambdaParameters\DefaultLambdaParameters.csproj", "{4B699645-EF83-45D2-A945-D25A53803CE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DefaultLambdaParameters", "DefaultLambdaParameters\DefaultLambdaParameters.csproj", "{4B699645-EF83-45D2-A945-D25A53803CE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AliasAnyType", "AliasAnyType\AliasAnyType.csproj", "{AD25A9C4-D2E9-4E88-8C31-E1BB588A62A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AliasAnyType", "AliasAnyType\AliasAnyType.csproj", "{AD25A9C4-D2E9-4E88-8C31-E1BB588A62A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InlineArrays", "InlineArrays\InlineArrays.csproj", "{35224909-8423-4F87-9685-2E824B4421D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InlineArrays", "InlineArrays\InlineArrays.csproj", "{35224909-8423-4F87-9685-2E824B4421D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExperimentalAttr", "ExperimentalAttr\ExperimentalAttr.csproj", "{0B06F7D9-EA25-44C5-BB15-63FF1CC5D222}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{35224909-8423-4F87-9685-2E824B4421D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35224909-8423-4F87-9685-2E824B4421D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35224909-8423-4F87-9685-2E824B4421D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B06F7D9-EA25-44C5-BB15-63FF1CC5D222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B06F7D9-EA25-44C5-BB15-63FF1CC5D222}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B06F7D9-EA25-44C5-BB15-63FF1CC5D222}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B06F7D9-EA25-44C5-BB15-63FF1CC5D222}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
