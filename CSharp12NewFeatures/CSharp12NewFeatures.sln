@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefReadonlyParameters", "Re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DefaultLambdaParameters", "DefaultLambdaParameters\DefaultLambdaParameters.csproj", "{4B699645-EF83-45D2-A945-D25A53803CE3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AliasAnyType", "AliasAnyType\AliasAnyType.csproj", "{AD25A9C4-D2E9-4E88-8C31-E1BB588A62A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InlineArrays", "InlineArrays\InlineArrays.csproj", "{35224909-8423-4F87-9685-2E824B4421D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{4B699645-EF83-45D2-A945-D25A53803CE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B699645-EF83-45D2-A945-D25A53803CE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B699645-EF83-45D2-A945-D25A53803CE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD25A9C4-D2E9-4E88-8C31-E1BB588A62A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD25A9C4-D2E9-4E88-8C31-E1BB588A62A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD25A9C4-D2E9-4E88-8C31-E1BB588A62A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD25A9C4-D2E9-4E88-8C31-E1BB588A62A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35224909-8423-4F87-9685-2E824B4421D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35224909-8423-4F87-9685-2E824B4421D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35224909-8423-4F87-9685-2E824B4421D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35224909-8423-4F87-9685-2E824B4421D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
