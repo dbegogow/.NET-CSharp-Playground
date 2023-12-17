@@ -6,7 +6,7 @@ public class Company
 {
     public int Id { get; init; }
 
-    [StringLength(30)]
+    [StringLength(255)]
     public string Name { get; set; }
 
     public ICollection<Employee> Employees { get; init; } = new HashSet<Employee>();

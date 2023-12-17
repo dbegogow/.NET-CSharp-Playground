@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExecuteUpdateAndExecuteDelete.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231217110637_InitialCreate")]
+    [Migration("20231217111700_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -33,8 +33,8 @@ namespace ExecuteUpdateAndExecuteDelete.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.HasKey("Id");
 
