@@ -1,6 +1,0 @@
-@ExecuteUpdateAndExcecuteDelete_HostAddress = http://localhost:5132
-
-GET {{ExecuteUpdateAndExcecuteDelete_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

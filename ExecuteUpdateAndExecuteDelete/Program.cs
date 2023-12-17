@@ -1,4 +1,5 @@
 using ExecuteUpdateAndExcecuteDelete;
+using ExecuteUpdateAndExcecuteDelete.Entities;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,29 +22,49 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
+app.MapPut("/increase-salaries", async (int companyId, AppDbContext dbContext) =>
 {
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+    var company = await dbContext
+        .Set<Company>()
+        .Include(c => c.Employees)
+        .FirstOrDefaultAsync(c => c.Id == companyId);
 
-app.MapGet("/weatherforecast", () =>
+    if (company is null)
+    {
+        return Results.NotFound(
+            $"The company with Id '{companyId}' was not found.");
+    }
+
+    foreach (var employee in company.Employees)
+    {
+        employee.Salary += 100;
+    }
+
+    await dbContext.SaveChangesAsync();
+
+    return Results.NoContent();
+});
+
+app.MapPut("/increase-salaries-v2", async (int companyId, AppDbContext dbContext) =>
 {
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
+    var company = await dbContext
+        .Set<Company>()
+        .AsNoTracking()
+        .FirstOrDefaultAsync(c => c.Id == companyId);
+
+    if (company is null)
+    {
+        return Results.NotFound(
+            $"The company with Id '{companyId}' was not found.");
+    }
+
+    await dbContext.Set<Employee>()
+        .Where(e => e.CompanyId == companyId)
+        .ExecuteUpdateAsync(s => s.SetProperty(
+            e => e.Salary,
+            e => e.Salary + 100));
+
+    return Results.NoContent();
+});
 
 app.Run();
-
-internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
