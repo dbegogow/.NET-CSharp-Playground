@@ -67,4 +67,28 @@ app.MapPut("/increase-salaries-v2", async (int companyId, AppDbContext dbContext
     return Results.NoContent();
 });
 
+app.MapDelete("/delete-employees", async (
+    int companyId,
+    decimal salaryThreshold,
+    AppDbContext dbContext) =>
+{
+    var company = await dbContext
+        .Set<Company>()
+        .AsNoTracking()
+        .FirstOrDefaultAsync(c => c.Id == companyId);
+
+    if (company is null)
+    {
+        return Results.NotFound(
+            $"The company with Id '{companyId}' was not found.");
+    }
+
+    await dbContext.Set<Employee>()
+        .Where(e => e.CompanyId == companyId
+                    && e.Salary > salaryThreshold)
+        .ExecuteDeleteAsync();
+
+    return Results.NoContent();
+});
+
 app.Run();
