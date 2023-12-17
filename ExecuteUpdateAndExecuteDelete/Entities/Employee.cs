@@ -1,5 +1,6 @@
 ﻿namespace ExecuteUpdateAndExcecuteDelete.Entities;
 
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
 public class Employee
@@ -13,6 +14,9 @@ public class Employee
     [Required]
     [StringLength(50)]
     public string LastName { get; set; }
+
+    [Precision(14, 2)]
+    public decimal Salary { get; set; }
 
     public int CompanyId { get; set; }
 

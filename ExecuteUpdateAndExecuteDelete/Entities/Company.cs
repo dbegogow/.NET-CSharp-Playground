@@ -1,13 +1,13 @@
 ﻿namespace ExecuteUpdateAndExcecuteDelete.Entities;
 
-using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 public class Company
 {
     public int Id { get; init; }
 
-    [Precision(14, 2)]
-    public decimal Salary { get; set; }
+    [StringLength(30)]
+    public string Name { get; set; }
 
     public ICollection<Employee> Employees { get; init; } = new HashSet<Employee>();
 }
