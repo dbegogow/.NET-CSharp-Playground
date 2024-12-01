@@ -45,24 +45,34 @@ public class DrivingToDisneyLand
 
     class Driver(DrivingToDisneyLand context)
     {
+        private SemaphoreSlim _busy = new SemaphoreSlim(1);
+
         public async Task Alert(string danger, int durationSeconds)
         {
+            await this._busy.WaitAsync();
+
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"Paying attention to {danger}");
 
             await Task.Delay(TimeSpan.FromSeconds(durationSeconds), context._cancelationToken);
 
             Console.WriteLine($"Finished paying attention to {danger}");
+
+            this._busy.Release();
         }
 
         public async Task<string> AskQuestion(string question)
         {
+            await this._busy.WaitAsync();
+
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"Processing \"{question}\"");
 
             await Task.Delay(TimeSpan.FromSeconds(Random.Shared.Next(1, 3)), context._cancelationToken);
 
             Console.WriteLine($"Answering {question}");
+
+            this._busy.Release();
 
             return "Pffft";
         }
