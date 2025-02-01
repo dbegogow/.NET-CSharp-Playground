@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuiltInOpenAPIDocumentGener
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchValuesImprovements", "SearchValuesImprovements\SearchValuesImprovements.csproj", "{69081F0A-BF30-4039-A270-89C95862674A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewLINQMethods", "NewLINQMethods\NewLINQMethods.csproj", "{875BD248-21F2-47C9-AB2A-621BBE755EEA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{69081F0A-BF30-4039-A270-89C95862674A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69081F0A-BF30-4039-A270-89C95862674A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69081F0A-BF30-4039-A270-89C95862674A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{875BD248-21F2-47C9-AB2A-621BBE755EEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{875BD248-21F2-47C9-AB2A-621BBE755EEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{875BD248-21F2-47C9-AB2A-621BBE755EEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{875BD248-21F2-47C9-AB2A-621BBE755EEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
