@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhenEachTask", "WhenEachTas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuiltInOpenAPIDocumentGeneration", "BuiltInOpenAPIDocumentGeneration\BuiltInOpenAPIDocumentGeneration.csproj", "{55A9F9B6-72FC-48A2-9F50-8198D5FED593}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchValuesImprovements", "SearchValuesImprovements\SearchValuesImprovements.csproj", "{69081F0A-BF30-4039-A270-89C95862674A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{55A9F9B6-72FC-48A2-9F50-8198D5FED593}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55A9F9B6-72FC-48A2-9F50-8198D5FED593}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55A9F9B6-72FC-48A2-9F50-8198D5FED593}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69081F0A-BF30-4039-A270-89C95862674A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69081F0A-BF30-4039-A270-89C95862674A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69081F0A-BF30-4039-A270-89C95862674A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69081F0A-BF30-4039-A270-89C95862674A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
